@@ -3,8 +3,11 @@ Futuristic Content Management System with advanced features included.
 
 
 # Issues
+
 Backend
+
 -> Features
+
 	- Blogeinträge
 		* Bilder hochladen + Bilder auswählen
 		* Text 
