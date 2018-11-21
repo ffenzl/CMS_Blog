@@ -32,3 +32,6 @@ Datenbank
 https://devexpress.github.io/devextreme-reactive/react/grid/demos/featured/virtual-scrolling/
 
 https://js.devexpress.com/Demos/WidgetsGallery/Demo/List/ListWithSearchBar/jQuery/Dark/Compact/
+
+Backend Design
+https://getbootstrap.com/docs/4.1/examples/dashboard/
