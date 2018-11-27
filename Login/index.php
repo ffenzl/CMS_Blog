@@ -6,8 +6,12 @@
     </head>
     <body>
         
-        <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-            <div class="modal-dialog" role="document">
+		
+		
+		
+		
+        <div class="test" tabindex="-1" >
+            <div class="modal-test" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -15,17 +19,17 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="test.php" method="POST">
                             <h2>ANMELDEN</h2>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Benutzername oder E-Mail *</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <label for="usermail">Benutzername oder E-Mail *</label>
+                                <input type="email" class="form-control" name="usermail" id="usermail" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Passwort *</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="password">Passwort *</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
-                            <button type="submit" class="btn btn-primary">ANMELDEN</button>
+                            <button type="submit" class="btn btn-primary" id="signInButton">ANMELDEN</button>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Angemeldet bleiben</label>
@@ -35,7 +39,7 @@
                 </div>
             </div>
         </div>
-
+<!--
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,17 +59,28 @@
                 </li>
                 </ul>
             </div>
-        </nav>
+        </nav>-->
         
-        <?php
-            echo $_POST["exampleInputPassword1"];
-            $hash = password_hash($_POST["exampleInputPassword1"], PASSWORD_DEFAULT);
-            echo $hash;
-        ?>
+        
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+		<script language="javascript" type="text/javascript">
+					
+			$('#signInButton').click(function(){
+                var request = new XMLHttpRequest();
+			    console.log("clicked");
+			    var inhalt = $('#exampleInputPassword1').value;
+				console.log(inhalt);
+				 request.open("GET","test.php?q="+inhalt,true);
+				 request.send();
+			  
+
+			});
+		
+		</script>
+		
     </body>
 </html>
