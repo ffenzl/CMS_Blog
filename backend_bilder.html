@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="de">
+  <head>
+	<!-- DevExtreme themes -->
+	<link rel="stylesheet" type="text/css" href="css_devextreme/dx.common.css" />
+	<link rel="stylesheet" type="text/css" href="css_devextreme/dx.dark.css" />
+
+	<!-- Bootstrap themes -->
+	<link rel="stylesheet" type="text/css" href="css_bootstrap/bootstrap.min.css" />
+
+	<!-- Dashboard -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/backend_bilder.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.png">
+
+    <title>Backend Bilder</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">CMS Blog</a>
+      	<ul class="navbar-nav px-3">
+        	<li class="nav-item text-nowrap">
+          		<a class="nav-link" href="file:///C:/Users/is201/Documents/GitHub/CMS_Blog/login.html?">Ausloggen</a>
+        	</li>
+      	</ul>
+    </nav>
+
+    <div class="container-fluid">
+      	<div class="row">
+        	<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          		<div class="sidebar-sticky">
+					<!-- Generelle Verwaltung-->
+		            <ul class="nav flex-column">
+						<li class="nav-item">
+					    	<a class="nav-link active" href="backend.html">
+					      		<span data-feather="home"></span>
+					      		Dashboard <span class="sr-only">(current)</span>
+					    	</a>
+					  	</li>
+					  	<li class="nav-item">
+					    	<a class="nav-link" href="#">
+					      		<span data-feather="file"></span>
+					      		Blog
+					    	</a>
+					  	</li>
+					  	<li class="nav-item">
+					    	<a class="nav-link" href="#">
+					      		<span data-feather="shopping-cart"></span>
+					      		Review
+					    	</a>
+					  	</li>
+					  	<li class="nav-item">
+					    	<a class="nav-link" href="#">
+					      		<span data-feather="users"></span>
+					      		Rechteverwaltung
+					    	</a>
+					  	</li>
+					  	<li class="nav-item">
+					    	<a class="nav-link" href="#">
+					      		<span data-feather="bar-chart-2"></span>
+					      		Einstellungen
+					    	</a>
+					  	</li>
+		            </ul>
+		            <!---------------------->
+
+            <!-- Medien Verwaltung-->
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              	<span>Medien</span>
+              	<a class="d-flex align-items-center text-muted" href="#" data-toggle="modal" data-target="#exampleModalCenter">
+                	<span data-feather="plus-circle"></span>
+              	</a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              	<li class="nav-item">
+                	<a class="nav-link" href="backend_bilder.html">
+                  		<span data-feather="file-text"></span>
+                  		Bilder
+                	</a>
+              	</li>
+              	<li class="nav-item">
+                	<a class="nav-link" href="backend_audio.html">
+                  		<span data-feather="file-text"></span>
+                  		Audio
+                	</a>
+             	</li>
+              	<li class="nav-item">
+                	<a class="nav-link" href="backend_video.html">
+                  		<span data-feather="file-text"></span>
+                  		Video
+                	</a>
+              	</li>
+            </ul>
+			<!---------------------->
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          	<!-- Überschrift -->
+          	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            	<h1 class="h2">Bilder</h1>
+            	<div class="btn-toolbar mb-2 mb-md-0">
+              		<div class="btn-group mr-2">
+              		</div>
+            	</div>
+          	</div>
+          	<!----------------->
+          	<!-- Bilder -->
+           	<div class="container">
+           		<div class="row">
+	            	<div class="bilderRow row">
+	            	</div>
+	        	</div>
+	      	</div>
+			<!----------------->
+			<!-- Überschrift -->
+			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			  	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+			        		<h5 class="modal-title" id="exampleModalLongTitle">Bilder, Audio-Dateien oder Videos hochladen</h5>
+			        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          		<span aria-hidden="true">&times;</span>
+			        		</button>
+			      		</div>
+			      		<div class="modal-body" style="min-height: 150px;" >
+      						<div class="demo-container">
+						        <div id="fileuploader">
+						            <div class="widget-container">
+						                <div id="file-uploader"></div>
+						                <div class="content" id="selected-files">
+						                    <div>
+						                        <h4>Ausgewählte Dateien</h4>
+						                    </div>
+						                </div>
+						            </div>
+						            <div class="options">
+						                <div class="caption">Optionen</div>
+						                <div class="option">
+						                    <span>Datei Typen</span>
+						                    <div id="accept-option"></div>
+						                </div>
+						            </div> 
+						        </div>                
+						    	</div>
+			      		</div>
+			      		<div class="modal-footer">
+			        		<button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+			        		<button type="button" class="btn btn-primary">Hochladen</button>
+			      		</div>
+			    	</div>
+			  	</div>
+			</div>
+			<!----------------->
+
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Jquery -->
+	   <script type="text/javascript" src="js_jquery/jquery-3.3.1.min.js"></script>
+	  <!-- DevExtreme library -->
+	   <script type="text/javascript" src="js_devextreme/dx.all.js"></script>
+	  <!-- Bootstrap library -->
+	   <script type="text/javascript" src="js_bootstrap/bootstrap.min.js"></script>
+    <!-- Icons -->
+      <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+      <script>
+        feather.replace()
+      </script>
+    <!-- Placed at the end of the document so the pages load faster -->
+      <script src="js/backend_bilder.js"></script>
+    <!-- ================================================== -->
+
+  </body>
+</html>
