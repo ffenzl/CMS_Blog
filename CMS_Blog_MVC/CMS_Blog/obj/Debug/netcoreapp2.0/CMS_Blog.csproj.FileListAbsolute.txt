@@ -1,0 +1,22 @@
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.deps.json
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.runtimeconfig.json
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.runtimeconfig.dev.json
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.dll
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.pdb
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.csprojAssemblyReference.cache
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.csproj.CoreCompileInputs.cache
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfoInputs.cache
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfo.cs
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.dll
+C:\Users\ffenzl\source\repos\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.pdb
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.deps.json
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.runtimeconfig.json
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.runtimeconfig.dev.json
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.dll
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.pdb
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.csprojResolveAssemblyReference.cache
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.csproj.CoreCompileInputs.cache
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfoInputs.cache
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfo.cs
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.dll
+C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.pdb

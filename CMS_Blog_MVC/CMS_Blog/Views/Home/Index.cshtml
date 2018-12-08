@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+@using (Html.BeginForm("Login", "Home", null, FormMethod.Post, null, new { @class = "form-signin" }))
+{
+    <img class="mb-4" src="@Url.Content("~/Images/favicon.png")" alt="" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Bitte einloggen</h1>
+    <label for="inputEmail" class="sr-only">Email Adresse</label>
+    @Html.TextBox("Name", null, new { @class = "form-control", @placeholder = "Email Adresse" })
+    <label for="inputPassword" class="sr-only">Passwort</label>
+    @Html.Password("Password", null, new { @class = "form-control", @placeholder = "Passwort" })
+    <input class="btn btn-lg btn-primary btn-block" value="Einloggen" type="submit" />
+
+    @if (ViewData["Error"] != null)
+    {
+        <label class="text-danger">Login fehlgeschlagen</label>
+    }
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+}
+
+@*<form class="form-signin" action="Login" method="POST">
+        <img class="mb-4" src="@Url.Content("~/Images/favicon.png")" alt="" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Bitte einloggen</h1>
+
+        <label for="inputEmail" class="sr-only">Email Adresse</label>
+        <input type="email" id="usermail" name="Email" class="form-control" placeholder="Email Adresse" required autofocus>
+        <label for="inputPassword" class="sr-only">Passwort</label>
+        <input type="password" id="password" name="Password" class="form-control" placeholder="Passwort" required>
+
+        <input class="btn btn-lg btn-primary btn-block" value="Einloggen" type="submit" />
+
+        <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+    </form>*@
+
