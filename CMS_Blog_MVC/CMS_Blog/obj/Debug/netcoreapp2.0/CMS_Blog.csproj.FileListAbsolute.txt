@@ -20,3 +20,14 @@ C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2
 C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfo.cs
 C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.dll
 C:\Users\Franziska\Google Drive\Bachelor\CMS_Blog\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.pdb
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.deps.json
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.runtimeconfig.json
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.runtimeconfig.dev.json
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.dll
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\bin\Debug\netcoreapp2.0\CMS_Blog.pdb
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.csprojAssemblyReference.cache
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.csproj.CoreCompileInputs.cache
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfoInputs.cache
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.AssemblyInfo.cs
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.dll
+C:\Users\simon\OneDrive\OTH-AW\WS1819\Content_Management_Systeme\StudA\CMS_Blog\CMS_Blog_MVC\CMS_Blog\obj\Debug\netcoreapp2.0\CMS_Blog.pdb

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "HTML Titel hier festlegen";
+    Layout = "~/Views/Shared/_Layout.cshtml";  //Wichtig
+}
+
+@* Hier einfach HTML Code einfügen wie gewohnt. Man braucht kein <body> Tag mehr oder sonst irgendwas *@
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")  @*So bindet man Sachen ein, die im Shared Ordner liegen, also Dateien, die von mehreren Views genutzt werden. Zum Beispiel die Navigationsleiste oben in der Seite -> macht Views einfach nur übersichtlicher*@
+
+<a class="gewünschte Klasse(n)" href=@Url.Action("Actionname", "Controllername")><span title="HIER KANN MAN WEITER VERSCHACHTELN"></span>Linktext</a> @*So erzeugt man Links, die noch andere verschachtelte Elemente enthalten können und es ist leichter verschiedene html-attritubte zum <a> mit rein zu schreiben *@
+
+@Html.ActionLink("Linktext", "Actionname", "Controllername") @* Alternative zu dem eins drüber. Wird zu einfachem <a> Element*@
+
+
+@*Am Ende von jedem View noch die JS - Dateien einbinden.*@
+<script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>

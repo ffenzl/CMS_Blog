@@ -7,7 +7,7 @@ namespace CMS_Blog
     {
         public static IRouteBuilder ConfigureRoutes(IRouteBuilder routeBuilder)
         {
-            AddDefaultRoute(routeBuilder, defaultController: "Home", defaultAction: "Index");
+            AddDefaultRoute(routeBuilder, defaultController: "Backend", defaultAction: "Login");
             return routeBuilder;
         }
 
@@ -21,17 +21,17 @@ namespace CMS_Blog
             routeBuilder.MapRoute(
                 name: "DefaultApi",
                 template: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "GetUser" });
+                defaults: new { controller = "Frontend", action = "GetUser" });
 
             routeBuilder.MapRoute(
                 name: "Backend",
                 template: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "GetBackend" });
+                defaults: new { controller = "Backend", action = "GetBackend" });
 
             routeBuilder.MapRoute(
                 name: "Login",
                 template: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "Login" });
+                defaults: new { controller = "Backend", action = "Login" });
         }
     }
 }
