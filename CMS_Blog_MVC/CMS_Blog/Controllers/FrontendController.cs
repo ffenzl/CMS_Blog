@@ -1,17 +1,23 @@
 ﻿namespace CMS_Blog.Controllers
 {
-    using CMS_Blog.SQLite;
-    using Microsoft.AspNetCore.Authorization;
+    using CMS_Blog.Models;
     using Microsoft.AspNetCore.Mvc;
-    using System.Data;
-    using System.Web.Helpers;
 
     public class FrontendController : Controller
     {
-        public IActionResult Index() => View();
+        [ActionName("Frontend")]
+        public IActionResult Index()
+        {
+            Blog blog = Blog.Get();
 
+            return View(blog);
+        }
+
+
+        [ActionName("Post")]
+        public IActionResult Post() => View();
 
         //
-        
+
     }
 }

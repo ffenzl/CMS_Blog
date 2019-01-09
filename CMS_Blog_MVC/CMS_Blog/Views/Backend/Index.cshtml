@@ -1,29 +1,17 @@
-﻿@{
+﻿@model CMS_Blog.Models.Blog
+
+@{
     ViewBag.Title = "Backend Index";
     ViewData["Title"] = "Backend Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
-
-
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <!-- Generelle Verwaltung-->
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href=@Url.Action("Index", "Backend")><span data-feather="home"></span>Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href=@Url.Action("Pictures", "Backend")><span data-feather="file"></span>Pictures</a>
-                    </li>
-                </ul>
-
-            </div>
-        </nav>
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml", Model)
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <!-- Überschrift -->
@@ -34,9 +22,8 @@
                 </div>
             </div>
             <!----------------->
-
-            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
+            <!---<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+            -->
             <h2>Section title</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">

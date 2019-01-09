@@ -11,6 +11,15 @@
           "lib/Antlr3.Runtime.dll": {}
         }
       },
+      "Autofac/3.5.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Autofac.dll": {}
+        }
+      },
       "BuildBundlerMinifier/2.4.337": {
         "type": "package",
         "dependencies": {
@@ -18,6 +27,57 @@
         },
         "build": {
           "build/BuildBundlerMinifier.targets": {}
+        }
+      },
+      "CKSource.CKFinder/3.4.5": {
+        "type": "package"
+      },
+      "CKSource.CKFinder.Connector.Core/3.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "3.5.2",
+          "CKSource.FileSystem": "1.1.2",
+          "ImageProcessor": "2.6.1.19",
+          "Newtonsoft.Json": "8.0.3"
+        },
+        "compile": {
+          "lib/net452/CKSource.CKFinder.Connector.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net452/CKSource.CKFinder.Connector.Core.dll": {}
+        }
+      },
+      "CKSource.CKFinder.Connector.Host.Owin/3.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "3.5.2",
+          "CKSource.CKFinder.Connector.Core": "3.4.5",
+          "Microsoft.Owin": "3.0.1",
+          "System.Net.Http.Formatting.Extension": "5.2.3"
+        },
+        "compile": {
+          "lib/net452/CKSource.CKFinder.Connector.Host.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net452/CKSource.CKFinder.Connector.Host.Owin.dll": {}
+        }
+      },
+      "CKSource.FileSystem/1.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net452/CKSource.FileSystem.dll": {}
+        },
+        "runtime": {
+          "lib/net452/CKSource.FileSystem.dll": {}
+        }
+      },
+      "ImageProcessor/2.6.1.19": {
+        "type": "package",
+        "compile": {
+          "lib/net452/ImageProcessor.dll": {}
+        },
+        "runtime": {
+          "lib/net452/ImageProcessor.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -1602,6 +1662,18 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Owin/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -1829,6 +1901,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -2740,6 +2821,19 @@
           "lib/netstandard1.3/System.Linq.Queryable.dll": {}
         }
       },
+      "System.Net.Http.Formatting.Extension/5.2.3": {
+        "type": "package",
+        "compile": {
+          "lib/System.Net.Http.Extensions.dll": {},
+          "lib/System.Net.Http.Formatting.dll": {},
+          "lib/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/System.Net.Http.Extensions.dll": {},
+          "lib/System.Net.Http.Formatting.dll": {},
+          "lib/System.Net.Http.Primitives.dll": {}
+        }
+      },
       "System.Numerics.Vectors/4.4.0": {
         "type": "package",
         "compile": {
@@ -3606,6 +3700,20 @@
         "lib/Antlr3.Runtime.pdb"
       ]
     },
+    "Autofac/3.5.2": {
+      "sha512": "S9fTYQ9F/ZZUgu1teHBGrt17YNDkwJVjGmK4GpqTm51Yafk22E6zZ8X7S8866eqdGatQFPa6wMvBkQst/KHykQ==",
+      "type": "package",
+      "path": "autofac/3.5.2",
+      "files": [
+        ".signature.p7s",
+        "autofac.3.5.2.nupkg.sha512",
+        "autofac.nuspec",
+        "lib/net40/Autofac.dll",
+        "lib/net40/Autofac.xml",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.xml"
+      ]
+    },
     "BuildBundlerMinifier/2.4.337": {
       "sha512": "ydnFzzwqAOr7YmnH/u+2dnKhE9GlumSt6PHTNNBDiw7WY9SDhx791z78RmQS7gNrgZyX5uEPCL/DMmYD81CcBw==",
       "type": "package",
@@ -3621,6 +3729,756 @@
         "tools/netstandard1.3/BundlerMinifier.dll",
         "tools/netstandard1.3/NUglify.dll",
         "tools/netstandard1.3/Newtonsoft.Json.dll"
+      ]
+    },
+    "CKSource.CKFinder/3.4.5": {
+      "sha512": "4qEsMx0qVAj+NhZg8EgAs/WPqPeOPFXvPJw5gpC/JYF9Ly0YnG/yg3ZnwraeN8YZb85l77G8JiVj6W48auo0UA==",
+      "type": "package",
+      "path": "cksource.ckfinder/3.4.5",
+      "files": [
+        ".signature.p7s",
+        "Content/CKFinderScripts/CHANGELOG.html",
+        "Content/CKFinderScripts/LICENSE.html",
+        "Content/CKFinderScripts/README.html",
+        "Content/CKFinderScripts/ckfinder.html",
+        "Content/CKFinderScripts/ckfinder.js",
+        "Content/CKFinderScripts/config.js",
+        "Content/CKFinderScripts/lang/az.json",
+        "Content/CKFinderScripts/lang/bg.json",
+        "Content/CKFinderScripts/lang/bs.json",
+        "Content/CKFinderScripts/lang/ca.json",
+        "Content/CKFinderScripts/lang/cs.json",
+        "Content/CKFinderScripts/lang/cy.json",
+        "Content/CKFinderScripts/lang/da.json",
+        "Content/CKFinderScripts/lang/de-ch.json",
+        "Content/CKFinderScripts/lang/de.json",
+        "Content/CKFinderScripts/lang/el.json",
+        "Content/CKFinderScripts/lang/en.json",
+        "Content/CKFinderScripts/lang/eo.json",
+        "Content/CKFinderScripts/lang/es-mx.json",
+        "Content/CKFinderScripts/lang/es.json",
+        "Content/CKFinderScripts/lang/et.json",
+        "Content/CKFinderScripts/lang/eu.json",
+        "Content/CKFinderScripts/lang/fa.json",
+        "Content/CKFinderScripts/lang/fi.json",
+        "Content/CKFinderScripts/lang/fr.json",
+        "Content/CKFinderScripts/lang/gu.json",
+        "Content/CKFinderScripts/lang/he.json",
+        "Content/CKFinderScripts/lang/hi.json",
+        "Content/CKFinderScripts/lang/hr.json",
+        "Content/CKFinderScripts/lang/hu.json",
+        "Content/CKFinderScripts/lang/id.json",
+        "Content/CKFinderScripts/lang/it.json",
+        "Content/CKFinderScripts/lang/ja.json",
+        "Content/CKFinderScripts/lang/ko.json",
+        "Content/CKFinderScripts/lang/ku.json",
+        "Content/CKFinderScripts/lang/lt.json",
+        "Content/CKFinderScripts/lang/lv.json",
+        "Content/CKFinderScripts/lang/nb.json",
+        "Content/CKFinderScripts/lang/nl.json",
+        "Content/CKFinderScripts/lang/nn.json",
+        "Content/CKFinderScripts/lang/no.json",
+        "Content/CKFinderScripts/lang/pl.json",
+        "Content/CKFinderScripts/lang/pt-br.json",
+        "Content/CKFinderScripts/lang/ro.json",
+        "Content/CKFinderScripts/lang/ru.json",
+        "Content/CKFinderScripts/lang/sk.json",
+        "Content/CKFinderScripts/lang/sl.json",
+        "Content/CKFinderScripts/lang/sr.json",
+        "Content/CKFinderScripts/lang/sv.json",
+        "Content/CKFinderScripts/lang/tr.json",
+        "Content/CKFinderScripts/lang/uk.json",
+        "Content/CKFinderScripts/lang/uz-cyrl.json",
+        "Content/CKFinderScripts/lang/uz-latn.json",
+        "Content/CKFinderScripts/lang/vi.json",
+        "Content/CKFinderScripts/lang/zh-cn.json",
+        "Content/CKFinderScripts/lang/zh-tw.json",
+        "Content/CKFinderScripts/libs/caman.js",
+        "Content/CKFinderScripts/libs/images/ajax-loader.gif",
+        "Content/CKFinderScripts/libs/images/icons-png/action-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/action-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/alert-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/alert-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-d-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-d-l-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-d-l-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-d-r-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-d-r-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-d-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-l-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-l-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-r-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-r-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-u-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-u-l-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-u-l-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-u-r-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-u-r-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/arrow-u-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/audio-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/audio-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/back-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/back-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/bars-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/bars-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/bullets-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/bullets-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/calendar-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/calendar-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/camera-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/camera-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-d-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-d-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-l-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-l-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-r-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-r-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-u-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/carat-u-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/check-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/check-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/clock-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/clock-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/cloud-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/cloud-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/comment-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/comment-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/delete-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/delete-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/edit-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/edit-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/eye-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/eye-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/forbidden-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/forbidden-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/forward-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/forward-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/gear-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/gear-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/grid-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/grid-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/heart-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/heart-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/home-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/home-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/info-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/info-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/location-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/location-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/lock-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/lock-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/mail-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/mail-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/minus-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/minus-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/navigation-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/navigation-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/phone-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/phone-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/plus-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/plus-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/power-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/power-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/recycle-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/recycle-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/refresh-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/refresh-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/search-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/search-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/shop-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/shop-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/star-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/star-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/tag-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/tag-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/user-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/user-white.png",
+        "Content/CKFinderScripts/libs/images/icons-png/video-black.png",
+        "Content/CKFinderScripts/libs/images/icons-png/video-white.png",
+        "Content/CKFinderScripts/libs/jquery.js",
+        "Content/CKFinderScripts/libs/jquery.mobile.icons.css",
+        "Content/CKFinderScripts/libs/jquery.mobile.js",
+        "Content/CKFinderScripts/libs/jquery.mobile.structure.css",
+        "Content/CKFinderScripts/libs/jquery.mobile.theme.css",
+        "Content/CKFinderScripts/plugins/README.md",
+        "Content/CKFinderScripts/samples/ckeditor.html",
+        "Content/CKFinderScripts/samples/css/img/adjoined-separator.png",
+        "Content/CKFinderScripts/samples/css/img/alert.png",
+        "Content/CKFinderScripts/samples/css/img/icon-close.png",
+        "Content/CKFinderScripts/samples/css/img/icon-download.png",
+        "Content/CKFinderScripts/samples/css/img/icon-navigation-a-github.png",
+        "Content/CKFinderScripts/samples/css/img/icon-question-mark.png",
+        "Content/CKFinderScripts/samples/css/img/icon-sdk-book.png",
+        "Content/CKFinderScripts/samples/css/img/icon-sdk-documentation.png",
+        "Content/CKFinderScripts/samples/css/img/icon-sdk-gear.png",
+        "Content/CKFinderScripts/samples/css/img/icon-sdk-sample.png",
+        "Content/CKFinderScripts/samples/css/img/icon-toggler-light.png",
+        "Content/CKFinderScripts/samples/css/img/icon-toggler.png",
+        "Content/CKFinderScripts/samples/css/img/icon-tree-a-collapser.png",
+        "Content/CKFinderScripts/samples/css/img/icon-tree-a-link.png",
+        "Content/CKFinderScripts/samples/css/img/tip.png",
+        "Content/CKFinderScripts/samples/css/sample.css",
+        "Content/CKFinderScripts/samples/full-page-open.html",
+        "Content/CKFinderScripts/samples/full-page.html",
+        "Content/CKFinderScripts/samples/img/favicon.ico",
+        "Content/CKFinderScripts/samples/img/logo.png",
+        "Content/CKFinderScripts/samples/index.html",
+        "Content/CKFinderScripts/samples/js/html5shiv.min.js",
+        "Content/CKFinderScripts/samples/js/sf.js",
+        "Content/CKFinderScripts/samples/js/tree-a.js",
+        "Content/CKFinderScripts/samples/localization.html",
+        "Content/CKFinderScripts/samples/modals.html",
+        "Content/CKFinderScripts/samples/other-custom-configuration.html",
+        "Content/CKFinderScripts/samples/other-read-only.html",
+        "Content/CKFinderScripts/samples/plugin-examples.html",
+        "Content/CKFinderScripts/samples/plugins/StatusBarInfo/StatusBarInfo.js",
+        "Content/CKFinderScripts/samples/popups.html",
+        "Content/CKFinderScripts/samples/skins-jquery-mobile.html",
+        "Content/CKFinderScripts/samples/skins-moono.html",
+        "Content/CKFinderScripts/samples/skins-neko.html",
+        "Content/CKFinderScripts/samples/user-interface-compact.html",
+        "Content/CKFinderScripts/samples/user-interface-default.html",
+        "Content/CKFinderScripts/samples/user-interface-listview.html",
+        "Content/CKFinderScripts/samples/user-interface-mobile.html",
+        "Content/CKFinderScripts/samples/widget.html",
+        "Content/CKFinderScripts/skins/core/ckfinder.css",
+        "Content/CKFinderScripts/skins/core/file-icons/128/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/impress.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/writer.png",
+        "Content/CKFinderScripts/skins/core/file-icons/128/zip.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/impress.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/writer.png",
+        "Content/CKFinderScripts/skins/core/file-icons/16/zip.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/22/zip.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/256/zip.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/impress.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/writer.png",
+        "Content/CKFinderScripts/skins/core/file-icons/32/zip.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/impress.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/writer.png",
+        "Content/CKFinderScripts/skins/core/file-icons/48/zip.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/7z.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/access.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/audio.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/calc.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/css.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/csv.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/directory.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/draw.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/excel.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/html.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/image.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/impress.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/javascript.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/log.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/msword.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/pdf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/php.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/plain.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/powerpoint.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/rar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/readme.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/rtf.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/sql.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/tar.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/unknown.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/video.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/writer.png",
+        "Content/CKFinderScripts/skins/core/file-icons/64/zip.png",
+        "Content/CKFinderScripts/skins/core/images/custom/128/image.png",
+        "Content/CKFinderScripts/skins/core/images/custom/256/image.png",
+        "Content/CKFinderScripts/skins/core/images/custom/32/image.png",
+        "Content/CKFinderScripts/skins/core/images/custom/48/image.png",
+        "Content/CKFinderScripts/skins/core/images/custom/64/image.png",
+        "Content/CKFinderScripts/skins/jquery-mobile/icons.css",
+        "Content/CKFinderScripts/skins/moono/ckfinder.css",
+        "Content/CKFinderScripts/skins/moono/icons.css",
+        "Content/CKFinderScripts/skins/moono/images/ajax-loader.gif",
+        "Content/CKFinderScripts/skins/neko/ckfinder.css",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/impress.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/photo.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/unknow.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/writer.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/128/zip.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/impress.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/writer.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/16/zip.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/22/zip.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/unknow.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/256/zip.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/impress.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/writer.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/32/zip.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/impress.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/writer.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/48/zip.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/7z.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/access.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/audio.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/calc.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/css.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/csv.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/directory.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/draw.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/excel.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/html.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/image-preview.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/image.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/impress.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/javascript.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/log.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/msword.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/pdf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/php.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/plain.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/powerpoint.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/rar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/readme.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/rtf.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/sql.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/tar.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/unknow.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/unknown.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/video.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/writer.png",
+        "Content/CKFinderScripts/skins/neko/file-icons/64/zip.png",
+        "Content/CKFinderScripts/skins/neko/icons.css",
+        "Content/CKFinderScripts/skins/neko/images/ajax-loader.gif",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/adjust-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/arrow-d-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/arrow-l-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/arrow-r-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/back-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/blur-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/brightness-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/cancel-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/choose-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/choose-resized-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/clip-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/contrast-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/crop-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/details-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/exposure-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/file-copy-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/file-delete-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/file-download-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/file-edit-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/file-move-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/file-rename-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/folder-add-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/folder-delete-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/folder-rename-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/forward-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/gamma-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/hue-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/maximize-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/menu-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/minimize-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/minus-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/more-vertical-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/noise-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/plus-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/presets-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/question-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/reset-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/resize-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/rotate-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/rotate-left-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/rotate-right-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/saturation-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/save-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/sepia-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/settings-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/sharpen-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/tick-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/upload-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/vibrance-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/black/view-black.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/add-circle-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/add-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/add-photo-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/adjust-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/arrow-down-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/check-blue.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/check-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/check-white.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/checkbox-checked.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/checkbox.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/close-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/crop-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/folder-add-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/folder-blue.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/folder-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/folder-open-blue.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/info-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/photo-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/presets-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/reset-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/resize-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/rotate-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/rotate-left-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/rotate-right-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/save-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/settings.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/gray/trash-gray.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/white/arrow-left-white.svg",
+        "Content/CKFinderScripts/skins/neko/images/svg/white/arrow-right-white.svg",
+        "Content/CKFinderScripts/skins/neko/skin.js",
+        "cksource.ckfinder.3.4.5.nupkg.sha512",
+        "cksource.ckfinder.nuspec"
+      ]
+    },
+    "CKSource.CKFinder.Connector.Core/3.4.5": {
+      "sha512": "F6qPLaePaZ1cZxcojJyH8zFGE91769jh3lGOTiLgCdwI+eMpbxcjAyu5EeTeA3foEBz+L4yucgbu/7gY7PSARQ==",
+      "type": "package",
+      "path": "cksource.ckfinder.connector.core/3.4.5",
+      "files": [
+        ".signature.p7s",
+        "cksource.ckfinder.connector.core.3.4.5.nupkg.sha512",
+        "cksource.ckfinder.connector.core.nuspec",
+        "lib/net452/CKSource.CKFinder.Connector.Core.XML",
+        "lib/net452/CKSource.CKFinder.Connector.Core.dll"
+      ]
+    },
+    "CKSource.CKFinder.Connector.Host.Owin/3.4.5": {
+      "sha512": "/31zJpw+/RU831+W2mum+V6TL4HkHMD/+lpD3g3vyFFk42NLhcqN5D17e5b2WfPAXDskbHWMyBK7jb9AE61Cww==",
+      "type": "package",
+      "path": "cksource.ckfinder.connector.host.owin/3.4.5",
+      "files": [
+        ".signature.p7s",
+        "cksource.ckfinder.connector.host.owin.3.4.5.nupkg.sha512",
+        "cksource.ckfinder.connector.host.owin.nuspec",
+        "lib/net452/CKSource.CKFinder.Connector.Host.Owin.XML",
+        "lib/net452/CKSource.CKFinder.Connector.Host.Owin.dll"
+      ]
+    },
+    "CKSource.FileSystem/1.1.2": {
+      "sha512": "GzoapoQSxkM9dtsBJK8Wgsy8/SAORyC7rxJ0QG4Q2bsaU2xBpn5wa7sFBDR+TKO2QQxEsASE8YVsTE0pvb3E+A==",
+      "type": "package",
+      "path": "cksource.filesystem/1.1.2",
+      "files": [
+        ".signature.p7s",
+        "cksource.filesystem.1.1.2.nupkg.sha512",
+        "cksource.filesystem.nuspec",
+        "lib/net452/CKSource.FileSystem.XML",
+        "lib/net452/CKSource.FileSystem.dll"
+      ]
+    },
+    "ImageProcessor/2.6.1.19": {
+      "sha512": "QnQCmo0HQ29612Pu8eRFcg97dpNIkDgG/PaQpvztS8V3FdVF6Z/isq4nc6MyYBI3qblbWdhYBswuxpS5rTsxxg==",
+      "type": "package",
+      "path": "imageprocessor/2.6.1.19",
+      "files": [
+        ".signature.p7s",
+        "imageprocessor.2.6.1.19.nupkg.sha512",
+        "imageprocessor.nuspec",
+        "lib/net452/ImageProcessor.dll",
+        "lib/net452/ImageProcessor.xml"
       ]
     },
     "Libuv/1.10.0": {
@@ -3825,7 +4683,7 @@
       ]
     },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.0.3": {
-      "sha512": "gsJ8XtLjGF3FF02UJ1uRXhwHGxP+JoJtqqGxfPTCYDeixSqQf4NNSqUPbXB987lpZciLyCkDB9cyyVTKubJl3w==",
+      "sha512": "kANAaNQfF4m+llKfv/cxVZVzhTESOrFjKeS6hKHj8oBPD4kymVn254XsekKx6Mkw4UfiTKh45CcKzdEScFyFlw==",
       "type": "package",
       "path": "microsoft.aspnetcore.hosting.abstractions/2.0.3",
       "files": [
@@ -3837,7 +4695,7 @@
       ]
     },
     "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.0.3": {
-      "sha512": "zRcioMNMAcwUkfJ36rPUvuzRyFa+Ph4HcQ6MFE7xX1ky84xV3ta732zXYAu8QbEVXFeFsSIu+YfZhGw47kiivA==",
+      "sha512": "sgm+OGvsDrr7NC3bE2k2r92iqAoNRV7rJYv42J4CsDFINllDMzksPkqHmlevx0FFsadIt/5XEx4J44v4CtPdfA==",
       "type": "package",
       "path": "microsoft.aspnetcore.hosting.server.abstractions/2.0.3",
       "files": [
@@ -3873,7 +4731,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Abstractions/2.0.3": {
-      "sha512": "68K27sUVMTaroqw40uV6tVZDmg5aVjBE9c+1tZIYbb9Zd193sTOOpnS+5vipA46OaGUv47mzSwa8h+wn0rGDQA==",
+      "sha512": "4lfcSmPT4BkCLyouRZR5eMOptT7Zd4s7EJwlPiYgKDa+T0LguAdPnvgfII6ObmQsw2WMi/8Be9naJQ3XeaBfEw==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.abstractions/2.0.3",
       "files": [
@@ -3885,7 +4743,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Extensions/2.0.3": {
-      "sha512": "d1EUE+aOT2dhpyciM/In1sNADd0eXo8Xq0L5W4+rJoo1oS3/mEoj0il0dfCmBxtvfPwx8AEfBymw07izpzXmqQ==",
+      "sha512": "3ITaP3UbwdCp0y8B/WiI9X9jIhzfu0Y1Uyve6DLJP65uHDRuKrNqusGBkLk0w/EI0wMxMYkvTO5nPOm2ozOe1A==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.extensions/2.0.3",
       "files": [
@@ -3897,7 +4755,7 @@
       ]
     },
     "Microsoft.AspNetCore.Http.Features/2.0.3": {
-      "sha512": "/aQjeLghQofUYDIbOv+D/QOQi4+AqEnqWK9ZUrHftsKe6h4NaDYH1hajwJz4a+lgkQh3OuhLxZnJNZBVpb+AHQ==",
+      "sha512": "6yIGNR9pe6bTuFVSAtoS3GlnQ+tovDHQIUuqFw9/EKAMsYDmNsFb8wFRRH74ThVj9WYNQyyblW4awrrwWVywJw==",
       "type": "package",
       "path": "microsoft.aspnetcore.http.features/2.0.3",
       "files": [
@@ -4052,7 +4910,7 @@
       ]
     },
     "Microsoft.AspNetCore.Mvc.Razor.Extensions/2.0.3": {
-      "sha512": "bhfnv7F4bbydJRElzaFTA0UyiX3s5TrImLNxKomBlh2DkOOpFsOZlfT8Vz+yltO9ASI5cwfRwiGe4Q2iTdaQqw==",
+      "sha512": "miClt2wuemx+Puakxmzda6sqTFuJy/jk6STI93JY2GzZW/8Lozd1q8ZTX6r3sdqJY8achvT3pzDuEQYajPqiMg==",
       "type": "package",
       "path": "microsoft.aspnetcore.mvc.razor.extensions/2.0.3",
       "files": [
@@ -4114,7 +4972,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Language/2.0.3": {
-      "sha512": "4G4vvEhq7aMGst0K4MymuQQ2dou4dWnYYirh2dZZJ+f4GizwoQSl4xgUxpKmqxiLRKxK3Kvrs91/SQIlmkineA==",
+      "sha512": "CpBC6/OONA5meGoUNCgg1pHnmjuHiqHC78I5BjVXiI3GtBRnmpSjVRIlW5lKuBkakMti/f14a3bsX//D3TalrQ==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.language/2.0.3",
       "files": [
@@ -4322,7 +5180,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Razor/2.0.3": {
-      "sha512": "pRQxjGEqm/Gr0IU2eUbVmiUezAljtjCZDeLirYjDVqIZwxgPU97WtOojGHNYWVAvdHlYogFQU3OGxDji1Z4gpA==",
+      "sha512": "rBBainKkYA9G1uPAnIOxLF6K9vq0zaRrYgvB2SLb8+r69+6dlRasfDYLdDmZiZWxEAkPwAu4dGJW2oAveHcDRg==",
       "type": "package",
       "path": "microsoft.codeanalysis.razor/2.0.3",
       "files": [
@@ -4429,7 +5287,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore/2.0.3": {
-      "sha512": "h1qEOSOyYQU4SiPR2bvKHcH3Ik2z3eXlrlAt8WiP8AmtaUEUiEWVE/WUP5i2MvL067TJkMFuRoVOS2YU1VjiPg==",
+      "sha512": "c1E/qD/IfKgy1adQe6KMIyldntZN6xvZASU2Q3oF3dcz8vcrvthpzM81PMXVuiLnZB82+lsnXUT8+b7BX61JjA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore/2.0.3",
       "files": [
@@ -4441,7 +5299,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Design/2.0.3": {
-      "sha512": "hWmbmZg0BhXD3/zuR/w3tCfLyPHpQ52GRPKt80vSmnFOnqaa+/Di7v0zOfPQMmn9gXiZ0hAtx5ywvwRNCTCzBg==",
+      "sha512": "A3lW1FqIIB4aAVS6Vy1NxsC0/p/SHQJo0YPBJqQfsFtD98jrbv7OezYcaY3mr9ysxJ4xPqMHaCmxjiJMX1hDEA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.design/2.0.3",
       "files": [
@@ -4455,7 +5313,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/2.0.3": {
-      "sha512": "fXOrHnoXUzdVc2S+NsdGcT963hbgQ3DdF9e+anB21b36HIQM0ZcLrPyI8fC5lQA9T1sFuKQ/tKvbShzm/0aWWw==",
+      "sha512": "JY0kQ4HIKKXOyJC6hvt5v+DKMMdwTmB7qgnVhjiCKT6vuzPmWoGaHHlu+oIjrKKnGgigLW1sWRtfL/5fQNc9+A==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.relational/2.0.3",
       "files": [
@@ -4467,7 +5325,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.SqlServer/2.0.3": {
-      "sha512": "kbYgPZxFIs3Mlz6AdOA+/RrS28o1ehyoRP2RzbEdG8NkqO2lHbMPTBHFmQAlOVLlb2XBOaj96SMtwjRuRruuSg==",
+      "sha512": "Sbhabuc86hcV6LdueRFKYJONVMVv09cxvea79dWgDju6zF7jpvDM/uLx9gJIjWZLmY5CCgVKy+ne87fNRIQCpg==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.sqlserver/2.0.3",
       "files": [
@@ -4479,7 +5337,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools/2.0.3": {
-      "sha512": "KOkhbzPTFJa/NEduIdT8o1vOKUZAVvcfyR5rFIKUvFGSSEU2tkmEkJ0ZFxZzpbltD7cj03DlvMlB83RTyYraPg==",
+      "sha512": "92cc/VXdKYIPg9tntXGC02reCj8ksmwstBCsOrQpHK4Jmg+ucZ2OanATwtulzAu90hoQTFw5dhlm4mAL/ApKuw==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.tools/2.0.3",
       "files": [
@@ -4503,7 +5361,7 @@
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/2.0.2": {
-      "sha512": "X0+dBcQHmOlPz2BOty8mQtku0TCffCIkvqEvLi4iNNubDjY0G1zwFVpBdJb1P0nEMbcfbh3EgBVHf8OJWvq3iw==",
+      "sha512": "VEOkzQZ+pQcE6kBtbQ69m5hIBGyyljQFEdJn7Qk8caOFee4uG39T6ObF7JAPngF9pZJuYmpzuXxjESOUbgMWPw==",
       "type": "package",
       "path": "microsoft.extensions.caching.abstractions/2.0.2",
       "files": [
@@ -4515,7 +5373,7 @@
       ]
     },
     "Microsoft.Extensions.Caching.Memory/2.0.2": {
-      "sha512": "tI8xks60vEmuRiXDwnRBnNWEZG5CeInh2ZyAhBelkxhNM8hDZJDw4tnyCRCeyHFh+oi7dQXMSIij67S3p5SvYg==",
+      "sha512": "IbqAtoZO40+WyZU5yPdVduzhiWu+xpfchMZrOhajkW0qW8BpBN4kDDoe8mkZDZ41Z/jsmsR8kdL4+HpEGEqeYg==",
       "type": "package",
       "path": "microsoft.extensions.caching.memory/2.0.2",
       "files": [
@@ -4539,7 +5397,7 @@
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/2.0.2": {
-      "sha512": "IoTZQU9aQOHr9zQbwozyzWq25eFbu/EcUZnPAMum6hh0Nl2RuM7ieziNLk3xk+c2g8YnnmxiA3VEvVaCFYCoTQ==",
+      "sha512": "2b4XZRT3fHB9fkcfQS9/S4ClYcYYx2FGVReTurtT1mhV/Kg/OtWIYx4Saar2LHlCdz90OqM/AGjDSfzsbOzFsQ==",
       "type": "package",
       "path": "microsoft.extensions.configuration.abstractions/2.0.2",
       "files": [
@@ -4706,7 +5564,7 @@
       ]
     },
     "Microsoft.Extensions.Hosting.Abstractions/2.0.3": {
-      "sha512": "r5QYhMYRjY/JbkE1x6kgRDZUJixJ8YngaN4BHy8/EtLxBDL98Je8IrElPHExh6QQPLKu0KYzt+9oLBR0L98i7A==",
+      "sha512": "huCOv7hSh3JP3dqmYHZedr/1RtvXfyYvWbrEcZjn0m/TNtSVysKXQ9ffNVAnM5w6qO+ptzcq82FWV+H8UVFnDg==",
       "type": "package",
       "path": "microsoft.extensions.hosting.abstractions/2.0.3",
       "files": [
@@ -4742,7 +5600,7 @@
       ]
     },
     "Microsoft.Extensions.Logging/2.0.2": {
-      "sha512": "OAfe/ju23vgXyqG/E9eDQ8lE5ydMV/IruvHqZ8MRi3T8DTpdL+kDGhDR/zqChnnTcalsZV31bB1OPn75RLHdqQ==",
+      "sha512": "kka7M7HmqXr9wWP8bMTGQfg6kVCPVlwHXniHhEHVrSGVEmWHxnyPCOeCyvhrz9MDcX16WMJq+uEvob+k3+dxDQ==",
       "type": "package",
       "path": "microsoft.extensions.logging/2.0.2",
       "files": [
@@ -4754,7 +5612,7 @@
       ]
     },
     "Microsoft.Extensions.Logging.Abstractions/2.0.2": {
-      "sha512": "B1F5GAMGCIuYzL1LouJ08ie+CrTYGzLVd1gfJHWpjXtIfNwzs2PZxsuLYLIAqMTlpiDcoB8PSZHbzU5bMOi+gg==",
+      "sha512": "72iP9bY5OhMxZbaqP76T6Egq7+/g+yDEm9FL8bc9yB3nVTCbtiSHkIRRdhMXxXKxxtmtzPHe4iewdRKA9uSZYQ==",
       "type": "package",
       "path": "microsoft.extensions.logging.abstractions/2.0.2",
       "files": [
@@ -4813,7 +5671,7 @@
       ]
     },
     "Microsoft.Extensions.Options/2.0.2": {
-      "sha512": "OrIk/xmo5rsN4ufV32cjAQgM9uCoe6FaNijFX7Huwdg8T3z5L5r1kMBMwjROvDJZNiNkcfJ6iJi2JhCRi6GTfA==",
+      "sha512": "UwoGhA9IST5AqeVz6Ig3fwAmVCHkVPU0Mv+gBpYWLu9J1UM4QSqLGTcEZaEuhGZ9HCkS5BC2mHCMv9g+oIvntg==",
       "type": "package",
       "path": "microsoft.extensions.options/2.0.2",
       "files": [
@@ -4860,7 +5718,7 @@
       ]
     },
     "Microsoft.Net.Http.Headers/2.0.3": {
-      "sha512": "CWxDFEQp3Qseugtue2hCsvAEVz+OLn39NfZllKXWPOEfY01xLaPlSta1oVGqoTAdakK6A+YibNhMv9lsf6y19Q==",
+      "sha512": "R1MuitB3uKhWZFWU+zMmS43hfZ0M81KXGsXi41oa974juImdT46g+G5R24YT40E05MbZ/ExaBTj3mTMCA/GIfA==",
       "type": "package",
       "path": "microsoft.net.http.headers/2.0.3",
       "files": [
@@ -5214,8 +6072,20 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Owin/3.0.1": {
+      "sha512": "CgFYwpkjpMxQsf3gjIEjOmm1Rl1v16m7YcNAAMeZtE4Ec0uxqTEyHlxP+Emmk/vIiDk2PQZHvLws2C+b/bNuMQ==",
+      "type": "package",
+      "path": "microsoft.owin/3.0.1",
+      "files": [
+        ".signature.p7s",
+        "lib/net45/Microsoft.Owin.XML",
+        "lib/net45/Microsoft.Owin.dll",
+        "microsoft.owin.3.0.1.nupkg.sha512",
+        "microsoft.owin.nuspec"
+      ]
+    },
     "Microsoft.VisualStudio.Web.BrowserLink/2.0.3": {
-      "sha512": "7jUOHGd7nVB/Zlh+sugV0jiNf2KCdfqAIpAje9V5JXGvmP1b3GKB4Vl2groWo+IUFTtFoRwUZpeYfR42w8Gexw==",
+      "sha512": "rL120ZVM9sdqvoETpYm/pJU59ANgMn/cl54C0P8wRX6ZFK8AhJlFVGlK6FThX+JD1WeF/AXBeFWQ4mpDSWdwMA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.browserlink/2.0.3",
       "files": [
@@ -5227,7 +6097,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.0.4": {
-      "sha512": "jBfPpH7/DCh3ffxUkMNMeBE79/ylmV9BtN7uEcSvICAK/YzSl0VfAyF8v6hc45x00GIt7PdRnyqOJ0a/MUBzNA==",
+      "sha512": "8ggJDeg/nb1DqwQ7A7gRYYX6v2ferg86C7N+YKEVixJmQJrXeHb8J3cS6QIuP2+/CtcavNw6UqBJmdJMvCxH/A==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration/2.0.4",
       "files": [
@@ -5239,7 +6109,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.0.4": {
-      "sha512": "o+XT5Il6dsxouDyFLZ8C2RPX0DircZhJFLVb3MThslIIArUis1aZdbvmqORUQ+Hr23q0uB5Z9r/suJa+5y5Sfg==",
+      "sha512": "HVnZHXmteQG4YJ6E81OVMWy9aL0pX0XADaD5/B4mf2QmSL9cXaodATkEN6XNvcqAp3hFu+Rgqu0c/AC5xvF/iw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.contracts/2.0.4",
       "files": [
@@ -5251,7 +6121,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.0.4": {
-      "sha512": "cU0XVEZvIYSgG2k+MmctVEgRe3O1PPdHvC+fmG3fVyoqgIG8VrIZMs3IluQ/bRrV7qNsiRZAWj6Zc0H4C2lX+w==",
+      "sha512": "DLdrAmrlM1+vv0m3FpxHvzlq0gH0gMXctPWJs3khN+M5tayE/N3jkvTRDbbLcjzfCxExcr17gC+beAgnuTpR+g==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.core/2.0.4",
       "files": [
@@ -5263,7 +6133,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.0.4": {
-      "sha512": "edY6ujcMIp591JYn9KkX5OaTjBRHmO2EeNladYYFACHY90b7h7Ppin5fZgaZdzBojgHx1mtWL+ikOMj6jotpNw==",
+      "sha512": "grHq+ltq6OKRyRKBbrN77G8eaaax/QURV2RWkW+xCFwkW0YgO/cdXe0MCyPKSmWpm3kFhacIPb6JU28zGWq/AQ==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.design/2.0.4",
       "files": [
@@ -5285,7 +6155,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.0.4": {
-      "sha512": "GWNZe30TQiKQs1NINXvJXDpM+HHu9bqXVK08cu5Xw1dihiYuFHtdZJE2Mj4YdvOqbi/7xk4kesLjO8ViAHU0gg==",
+      "sha512": "uakrShH/a+leCLXJtN2rbzFjGDE5hVcoUSQXtto1nvngCa2tg6LlIQi/VEtiN8hocKcof8d/3TtmykGsDPmdQw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.0.4",
       "files": [
@@ -5298,7 +6168,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.0.4": {
-      "sha512": "FowiuuWPsCVwSUA2GNgFDoDSTeqdMo5vNJ3hpvMgzIx6U3P9v9I0AkEFJLTYYlunIWaQzWLuxlIhifuUL2aeMg==",
+      "sha512": "RZo0aNEkl+k1vWcJGFcgV+QpmpeloM/EU47uUP3+ObL4krZooZ1ll8TeJzNrBmjzwZZLWkVjEoA0frUbsP908w==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.templating/2.0.4",
       "files": [
@@ -5310,7 +6180,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.0.4": {
-      "sha512": "zz32vrWu0i0A0j9mUUAIKsNrwAOsJcyee50Z7VToiKZBes/+OWrEGMDKnTv2L36gKvwuytHcBc2AA6JY3BwbPw==",
+      "sha512": "ewqcUWOjReBPS2IorJ7rUD1YGjUYDcyNAWIe4guwcxoX//5xXcC6L40hWLyB3ulSzeh/vlFquwNbFZes3myVVA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.utils/2.0.4",
       "files": [
@@ -5322,7 +6192,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.0.4": {
-      "sha512": "0PjmD2+VZB0dLdSM5S1CEHFsN41/qTjznHTx6j7PK4bQ21h6+54uwTcas3Bp51CnTPzAf1opI9QCWXv0GiUzMQ==",
+      "sha512": "SIFMPxnOuNg69xVSFttu7Vcf/FxYgTwrhJEMOSC/tsDKsU9CGMfgKyxSJyKJcYtqNlfsRI+67MxJR4Mp0pEAXA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.0.4",
       "files": [
@@ -5595,6 +6465,17 @@
         "lib/netstandard1.3/NuGet.Frameworks.xml",
         "nuget.frameworks.4.0.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
+      ]
+    },
+    "Owin/1.0.0": {
+      "sha512": "S87+AKxSxfhXRzIQfm6WBxfGbnzECLG8bmVp3lRiwjeYG9YBJ0AXd+2Xn7I7aqwwj0j4erSpX6H9OhXy+qQ7tw==",
+      "type": "package",
+      "path": "owin/1.0.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net40/Owin.dll",
+        "owin.1.0.0.nupkg.sha512",
+        "owin.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -7766,6 +8647,19 @@
         "system.linq.queryable.nuspec"
       ]
     },
+    "System.Net.Http.Formatting.Extension/5.2.3": {
+      "sha512": "d8ITU2wi/Oilg4Xxf5ehaATJKAa95fWwrtnWLk+Sy78L1KMyB4RUKVint0WfOaplAT/+kVGEmW9EMzFsTrneAw==",
+      "type": "package",
+      "path": "system.net.http.formatting.extension/5.2.3",
+      "files": [
+        ".signature.p7s",
+        "lib/System.Net.Http.Extensions.dll",
+        "lib/System.Net.Http.Formatting.dll",
+        "lib/System.Net.Http.Primitives.dll",
+        "system.net.http.formatting.extension.5.2.3.nupkg.sha512",
+        "system.net.http.formatting.extension.nuspec"
+      ]
+    },
     "System.Numerics.Vectors/4.4.0": {
       "sha512": "UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
       "type": "package",
@@ -9106,11 +10000,10 @@
       ]
     },
     "System.Security.Cryptography.Xml/4.4.0": {
-      "sha512": "u3W6J9Da+k7c8TKKKTE6ddyZxyDbRraOtt2+mfMDyJvuLvV1njx4f5Van3us/65Au9THPDM21jl/6Vvj7sxbJQ==",
+      "sha512": "1Xubvo4i+K+DO6YzVh6vBKmCl5xx/cAoiJEze6VQ+XwVQU25KQC9pPrmniz2EbbJnmoQ5Rm2FFjHsfQAi0Rs+Q==",
       "type": "package",
       "path": "system.security.cryptography.xml/4.4.0",
       "files": [
-        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net461/System.Security.Cryptography.Xml.dll",
@@ -10042,6 +10935,9 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "BuildBundlerMinifier >= 2.4.337",
+      "CKSource.CKFinder >= 3.4.5",
+      "CKSource.CKFinder.Connector.Core >= 3.4.5",
+      "CKSource.CKFinder.Connector.Host.Owin >= 3.4.5",
       "Microsoft.AspNet.Web.Optimization >= 1.1.3",
       "Microsoft.AspNetCore >= 2.0.0",
       "Microsoft.AspNetCore.Cryptography.KeyDerivation >= 2.2.0",
@@ -10061,23 +10957,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\simon\\.nuget\\packages\\": {},
+    "C:\\Users\\Franziska\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\simon\\OneDrive\\OTH-AW\\WS1819\\Content_Management_Systeme\\StudA\\CMS_Blog\\CMS_Blog_MVC\\CMS_Blog\\CMS_Blog.csproj",
+      "projectUniqueName": "C:\\Users\\Franziska\\Documents\\Work\\CMS_Blog\\CMS_Blog_MVC\\CMS_Blog\\CMS_Blog.csproj",
       "projectName": "CMS_Blog",
-      "projectPath": "C:\\Users\\simon\\OneDrive\\OTH-AW\\WS1819\\Content_Management_Systeme\\StudA\\CMS_Blog\\CMS_Blog_MVC\\CMS_Blog\\CMS_Blog.csproj",
-      "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\simon\\OneDrive\\OTH-AW\\WS1819\\Content_Management_Systeme\\StudA\\CMS_Blog\\CMS_Blog_MVC\\CMS_Blog\\obj\\",
+      "projectPath": "C:\\Users\\Franziska\\Documents\\Work\\CMS_Blog\\CMS_Blog_MVC\\CMS_Blog\\CMS_Blog.csproj",
+      "packagesPath": "C:\\Users\\Franziska\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Franziska\\Documents\\Work\\CMS_Blog\\CMS_Blog_MVC\\CMS_Blog\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Franziska\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10104,6 +11000,18 @@
           "BuildBundlerMinifier": {
             "target": "Package",
             "version": "[2.4.337, )"
+          },
+          "CKSource.CKFinder": {
+            "target": "Package",
+            "version": "[3.4.5, )"
+          },
+          "CKSource.CKFinder.Connector.Core": {
+            "target": "Package",
+            "version": "[3.4.5, )"
+          },
+          "CKSource.CKFinder.Connector.Host.Owin": {
+            "target": "Package",
+            "version": "[3.4.5, )"
           },
           "Microsoft.AspNet.Web.Optimization": {
             "target": "Package",
@@ -10196,6 +11104,56 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Das Paket \"Autofac 3.5.2\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "Autofac",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"CKSource.CKFinder.Connector.Core 3.4.5\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "CKSource.CKFinder.Connector.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"CKSource.CKFinder.Connector.Host.Owin 3.4.5\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "CKSource.CKFinder.Connector.Host.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"CKSource.FileSystem 1.1.2\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "CKSource.FileSystem",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"ImageProcessor 2.6.1.19\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "ImageProcessor",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Das Paket \"Microsoft.AspNet.Web.Optimization 1.1.3\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
       "libraryId": "Microsoft.AspNet.Web.Optimization",
       "targetGraphs": [
@@ -10206,8 +11164,38 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Das Paket \"Microsoft.Owin 3.0.1\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Das Paket \"Microsoft.Web.Infrastructure 1.0.0\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
       "libraryId": "Microsoft.Web.Infrastructure",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"Owin 1.0.0\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Das Paket \"System.Net.Http.Formatting.Extension 5.2.3\" wurde nicht mit dem Projektzielframework \".NETCoreApp,Version=v2.0\", sondern mit \".NETFramework,Version=v4.6.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
+      "libraryId": "System.Net.Http.Formatting.Extension",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.0"
       ]

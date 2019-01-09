@@ -2,6 +2,8 @@
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/css/signin.css" rel="stylesheet">
+
 @using (Html.BeginForm("Login", "Backend", null, FormMethod.Post, null, new { @class = "form-signin" }))
 {
     <img class="mb-4" src="@Url.Content("~/Images/favicon.png")" alt="" height="72">
@@ -22,18 +24,3 @@
 <script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="~/js_devextreme/dx.all.js"></script>
 <script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
-
-@*<form class="form-signin" action="Login" method="POST">
-        <img class="mb-4" src="@Url.Content("~/Images/favicon.png")" alt="" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Bitte einloggen</h1>
-
-        <label for="inputEmail" class="sr-only">Email Adresse</label>
-        <input type="email" id="usermail" name="Email" class="form-control" placeholder="Email Adresse" required autofocus>
-        <label for="inputPassword" class="sr-only">Passwort</label>
-        <input type="password" id="password" name="Password" class="form-control" placeholder="Passwort" required>
-
-        <input class="btn btn-lg btn-primary btn-block" value="Einloggen" type="submit" />
-
-        <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
-    </form>*@
-

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web.Helpers;
+﻿using CMS_Blog.Models;
 using CMS_Blog.SQLite;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Web.Helpers;
 
 namespace CMS_Blog.Controllers
 {
@@ -24,22 +20,21 @@ namespace CMS_Blog.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(string Name, string Password)
         {
-            return View("Index");
             SqlDatabase database = new SqlDatabase();
-            if (database.OpenConnection("CMS_BLOG.db"))
+            if (database.OpenConnection("SQLite\\CMS_BLOG.db"))
             {
                 DataTable returnData =
                         database.readSql(
                                 "select * " +
                                 "  from User " +
-                                " where user_name = \"" + Name + "\"" +
-                                "    or user_email = \"" + Name + "\"");
+                                " where user_alias = \"" + Name + "\"" +
+                                "    or upper(user_email) = \"" + Name.ToUpper() + "\"");
 
 
                 if (returnData.Rows.Count == 0)
                 {
                     ViewData["Error"] = "Login fehlgeschlagen";
-                    return View("Index");
+                    return View("Login");
                 }
                 else
                 {
@@ -47,19 +42,22 @@ namespace CMS_Blog.Controllers
                     string hashedPassword = row["user_password"].ToString();
 
                     if (Crypto.VerifyHashedPassword(hashedPassword, Password))
-                        return View("~/Backend/Index");
+                    {
+                        return View("Index", Blog.Get());
+                    }
                     else
                     {
                         ViewData["Error"] = "Login fehlgeschlagen";
-                        return View("Index");
+                        return View("Login");
                     }
                 }
             }
             else
             {
                 ViewData["Error"] = "Login fehlgeschlagen";
-                return View("Index");
+                return View("Login");
             }
+
         }
 
 
