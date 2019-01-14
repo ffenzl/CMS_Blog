@@ -20,6 +20,7 @@ namespace CMS_Blog.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(string Name, string Password)
         {
+            return View("Index", Blog.Get());
             SqlDatabase database = new SqlDatabase();
             if (database.OpenConnection("SQLite\\CMS_BLOG.db"))
             {
