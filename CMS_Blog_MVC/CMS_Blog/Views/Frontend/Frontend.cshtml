@@ -181,47 +181,142 @@ else
                 <div class="row">
                     <hr class="featurette-divider" />
                     <div class="featurette col-12">
-
                         @if ((y % 2) == 0)
-    {
-                    <img class="featurette-image pull-right w-50" src="~/Images/natur1.jpg">
+                        {
+                            <img class="featurette-image pull-right w-50" src="~/Images/natur1.jpg">
 
-}
-else
-{
-                    <img class="featurette-image pull-left" src="~/Images/chrome.png">
+                        }
+                        else
+                        {
+                            <img class="featurette-image pull-left" src="~/Images/chrome.png">
 
-}
-
+                        }
                         @if ((y % 2) == 0)
-    {
-                    <h1 class="featurette-heading">@Model.Posts[y].Title</h1>
+                        {
+                            <h1 class="featurette-heading">@Model.Posts[y].Title</h1>
 
-                    <p class="lead">
-                        @Html.Raw(Model.Posts[y].Text)
-                        <a href=@Url.Action("Post", "Frontend", Model.Posts[y]) class="text-primary">WEITERLESEN... &raquo;</a>
+                            <p class="lead">
+                                @Html.Raw(Model.Posts[y].Text)
+                                <a class="text-primary" data-toggle="collapse" href="#@Model.Posts[y].Id" role="button" aria-expanded="false" aria-controls="collapseExample">WEITERLESEN... &raquo;</a>
+                            </p>
+                            <div class="collapse" id="@Model.Posts[y].Id">
+                                <div class="card card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2>Schreibe einen Kommentar</h2>
+                                            @using (Html.BeginForm("Save", "Comment", null, FormMethod.Post, null, "comment-form"))
+                                            {
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" required>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email (optional)">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <textarea class="form-control" name="comment" id="validationTextarea" placeholder="Kommentar" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row float-right">
+                                                    <input class="btn btn-outline-primary" type="submit" value="KOMMENTAR ABSCHICKEN" />
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <hr class="featurette-divider" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2>Kommentare zu diesem Beitrag</h2>
+                                            @foreach (var item in Model.Posts[y].Comments)
+                                            {
+                                                <div class="comment lead">
+                                                    <span><b>@item.UserName</b></span><br />
+                                                    <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                                                    <div class="card comment-card">
+                                                        <div class="card-body">
+                                                            <p>@item.Text</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                    </p>
+                            <div>
+                                <span>@Model.Posts[y].Date.ToLongDateString() - </span><span class="text-primary">@Model.Posts[y].User.Alias</span> - <a><span data-feather="message-square"></span>@Model.Posts[y].Comments.Count</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <h1 class="featurette-heading">@Model.Posts[y].Title</h1>
 
-                    <div>
-                        <span>@Model.Posts[y].Date.ToLongDateString() - </span><span class="text-primary">@Model.Posts[y].User.Alias</span> - <a><span data-feather="message-square"></span>@Model.Posts.Count</a>
-                    </div>
-}
-else
-{
-                        <h1 class="featurette-heading">@Model.Posts[y].Title</h1>
+                            <p class="lead">
+                                @Html.Raw(Model.Posts[y].Text)
+                                <a class="text-primary" data-toggle="collapse" href="#@Model.Posts[y].Id" role="button" aria-expanded="false" aria-controls="collapseExample">WEITERLESEN... &raquo;</a>
+                            </p>
+                            <div class="collapse" id="@Model.Posts[y].Id">
+                                <div class="card card-body">
+                                    <div class="row">
+                                        <hr class="featurette-divider" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2>Schreibe einen Kommentar</h2>
+                                            @using (Html.BeginForm("Save", "Comment", null, FormMethod.Post, null, "comment-form"))
+                                            {
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" required>
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email (optional)">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <textarea class="form-control" name="comment" id="validationTextarea" placeholder="Kommentar" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row float-right">
+                                                    <input class="btn btn-outline-primary" type="submit" value="KOMMENTAR ABSCHICKEN" />
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <hr class="featurette-divider" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2>Kommentare zu diesem Beitrag</h2>
+                                            @foreach (var item in Model.Posts[y].Comments)
+                                            {
+                                                <div class="comment lead">
+                                                    <span><b>@item.UserName</b></span><br />
+                                                    <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                                                    <div class="card comment-card">
+                                                        <div class="card-body">
+                                                            <p>@item.Text</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <p class="lead">
-                            @Html.Raw(Model.Posts[y].Text)
-                            <a href=@Url.Action("Post", "Frontend", Model.Posts[y]) class="text-primary">WEITERLESEN... &raquo;</a>
-                        </p>
+                            <div>
+                                <span>@Model.Posts[y].Date.ToLongDateString() - </span><span class="text-primary">@Model.Posts[y].User.Alias</span> - <a><span data-feather="message-square"></span>@Model.Posts[y].Comments.Count</a>
+                            </div>
 
-                        <div>
-                            <span>@Model.Posts[y].Date.ToLongDateString() - </span><span class="text-primary">@Model.Posts[y].User.Alias</span> - <a><span data-feather="message-square"></span>@Model.Posts.Count</a>
-                        </div>
-
-}
-
+                        }
                     </div>
                    </div>
              }
