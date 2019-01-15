@@ -81,6 +81,28 @@ namespace CMS_Blog.Models
             return comments;
         }
 
+        public static bool Update(Comment comment)
+        {
+            SqlDatabase database = new SqlDatabase();
+            if (database.OpenConnection(Path.Combine(Startup.GetCurrentRootPath(), @"SQLite\CMS_BLOG.db")))
+            {
+                string statement =
+                        "update Comment " +
+                            "set comment_state = '" + comment.State + " " +
+                            "where comment_id = " + comment.Id;
+
+                database.BeginTransaction();
+                bool result = database.executeSql(statement, false);
+
+                if (result)
+                {
+                    database.TransCommit();
+                    return true;
+                }
+            }
+            return false;
+
+        }
 
         public static bool Create(Comment comment)
         {
@@ -88,7 +110,7 @@ namespace CMS_Blog.Models
             if (database.OpenConnection(Path.Combine(Startup.GetCurrentRootPath(), @"SQLite\CMS_BLOG.db")))
             {
                 string statement =
-                        "insert into User ( " +
+                        "insert into Comment ( " +
                             "comment_id, " +
                             "post_id, " +
                             "comment_username, " +
