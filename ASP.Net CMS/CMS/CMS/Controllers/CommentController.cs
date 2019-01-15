@@ -10,7 +10,7 @@ namespace CMS_Blog.Controllers
     {
         // GET: User
         [ActionName("Comment")]
-        public ActionResult Index()
+        public ActionResult Comments()
         {
             if ((Object)Session["UserId"] != null)
                 return View(CMS_Blog.Models.Comment.GetAll(Comment.STATE_OPEN));
@@ -41,19 +41,20 @@ namespace CMS_Blog.Controllers
             return View("Frontend");
         }
 
-        // POST: User/Create
+        /*// POST: Comment/Update
         [HttpPost()]
         [ActionName("Update")]
         public ActionResult Update(
-                User item
+                Comment item
         )
         {
-            if (CMS_Blog.Models.User.Update(item))
-                return View("User", CMS_Blog.Models.User.GetAll());
+            if (CMS_Blog.Models.Comment.Update(item))
+                return View("Comment", CMS_Blog.Models.Comment.GetAll());
 
-            ViewData["Error"] = "Benutzer konnte nicht gespeichert werden!";
-            return View("EditUser");
-        }
+            ViewData["Error"] = "Kommentar konnte nicht gespeichert werden!";
+            return View("Comment");
+        }*/
+
 
     }
 }

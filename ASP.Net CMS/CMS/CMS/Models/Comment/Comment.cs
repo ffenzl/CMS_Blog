@@ -9,6 +9,7 @@ namespace CMS_Blog.Models
     {
         public const int STATE_OPEN = 0;
         public const int STATE_APPROVED = 1;
+        public const int STATE_DENIED = 2;
 
         private int _id;
         private int _post_id;
