@@ -1,0 +1,33 @@
+﻿@model CMS_Blog.Models.SessionModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="/Content/css/signin.css" rel="stylesheet">
+
+@using (Html.BeginForm("Login", "Backend", FormMethod.Post, new { @class = "form-signin" }))
+{
+    @Html.AntiForgeryToken()
+    <img class="mb-4" src="@Url.Content("/Content/Images/favicon.png")" alt="" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Bitte einloggen</h1>
+    <label for="inputEmail" class="sr-only">Email Adresse</label>
+    @*@Html.TextBoxFor(a => a.UserName, )*@
+    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Email Adresse" })
+    @*@Html.TextBox("Name", Model.UserName, new { @class = "form-control", @placeholder = "Email Adresse" })*@
+    <label for="inputPassword" class="sr-only">Passwort</label>
+    @*@Html.PasswordFor(a => a.User_Pwd)*@
+    @Html.PasswordFor(m => m.User_Pwd, new { @class = "form-control", @placeholder = "Passwort" })
+    @*@Html.Password("Password", Model.User_Pwd, new { @class = "form-control", @placeholder = "Passwort" })*@
+    <input class="btn btn-lg btn-primary btn-block" value="Einloggen" type="submit" />
+
+    if (Session["Session_Val"] != null)
+    {
+        <label class="text-danger">@Session["Session_Val"]</label>
+    }
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+}
+<script type="text/javascript" src="/Content/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/Content/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="/Content/js_bootstrap/bootstrap.min.js"></script>
