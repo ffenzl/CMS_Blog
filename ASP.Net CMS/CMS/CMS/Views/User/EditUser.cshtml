@@ -1,8 +1,8 @@
 ﻿@model CMS_Blog.Models.User
 
 @{
-    ViewBag.Title = "Benutzer hinzufügen";
-    ViewData["Title"] = "Benutzer hinzufügen";
+    ViewBag.Title = "Benutzer bearbeiten";
+    ViewData["Title"] = "Benutzer bearbeiten";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -25,13 +25,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <div class="float-left"><h4>Neuer Benutzer</h4></div>
+                    <div class="float-left"><h4>Benutzer bearbeiten</h4></div>
                 </div>
                 <div class="card-body">
-                    @if (ViewData["Error"] != null)
-                    {
-                        <label class="text-danger">Login fehlgeschlagen</label>
-                    }
 
                     @using (Html.BeginForm("Update", "User", Model, FormMethod.Post))
                     {
@@ -62,9 +58,18 @@
                         </div>
                         <div class="form-group">
                             <label for="userRole">Benutzerrolle</label>
-                            <select class="form-control" id="userRole" name="role">
-                                <option value="0">Administrator</option>
-                                <option value="1">Redakteur</option>
+                            <select class="form-control" id="userRole" name="role" value="@Model.Role">
+                                @if (Model.Role == 1)
+    {
+                            <option value="1" selected>Administrator</option>
+                            <option value="2">Redakteur</option>
+}
+else
+{
+                            <option value="1">Administrator</option>
+                            <option value="2" selected>Redakteur</option>
+}
+
                             </select>
                         </div>
 
@@ -76,44 +81,17 @@
 
 
             </div>
-            <!--
-            <div class="card mb-4 w-75">
-                <ul class="nav">
-                    <li class="nav-item border-bottom border-dark">
-                        <a class="nav-link text-dark" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="card w-75">
-                <div class="card-body">
-                    @Html.Partial("~/Views/Backend/AddUser.cshtml")
-
-                   <!--<img class="w-50 h-50" src="@Url.Content("~/Images/user.png")" />-->
-            <!--
-                            </div>
-                        </div>
-            -->
+   
         </main>
 
     </div>
 
 </div>
 
-<script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="~/js_devextreme/dx.all.js"></script>
-<script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript" src="~/js/ckeditor.js"></script>
+<script type="text/javascript" src="/Content/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/Content/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="/Content/js_bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Content/js/ckeditor.js"></script>
 <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 <script>
     feather.replace();

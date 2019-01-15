@@ -1462,7 +1462,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\CKFinder.cshtml" />
-    <Content Include="Views\Backend\AddUser.cshtml" />
     <Content Include="Views\Backend\Index.cshtml" />
     <Content Include="Views\Backend\Login.cshtml" />
     <Content Include="Views\Backend\Pictures.cshtml" />

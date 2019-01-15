@@ -19,8 +19,9 @@ namespace CMS_Blog.Models
                             "set user_name = '" + user.Name + "', " +
                                 "user_surname = '" + user.Surname + "', " +
                                 "user_email = '" + user.Email + "', " +
-                                "user_alias = '" + user.Alias + "' " +
-                            "where user_id = " + user.Id;
+                                "user_alias = '" + user.Alias + "', " +
+                                "role_id = " + user.Role +
+                            " where user_id = " + user.Id;
 
                 database.BeginTransaction();
                 bool result = database.executeSql(statement, false);
@@ -32,7 +33,28 @@ namespace CMS_Blog.Models
                 }
             }
             return false;
-        
+
+
+
+        }
+
+        public static bool Delete(int id)
+        {
+            SqlDatabase database = new SqlDatabase();
+            if (database.OpenConnection(Path.Combine(Startup.GetCurrentRootPath(), @"SQLite\CMS_BLOG.db")))
+            {
+                string statement = "delete from User where user_id = " + id;
+
+                database.BeginTransaction();
+                bool result = database.executeSql(statement, false);
+
+                if (result)
+                {
+                    database.TransCommit();
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static bool Create(User user)
@@ -47,14 +69,16 @@ namespace CMS_Blog.Models
                             "user_surname, " +
                             "user_email, " +
                             "user_password, " +
-                            "user_alias) " +
+                            "user_alias, " +
+                            "role_id) " +
                         "values( " +
                             User.GetNextRef() + ", " +
                             "'" + user.Name + "', " +
                             "'" + user.Surname + "', " +
                             "'" + user.Email + "', " +
                             "'" + user.Password + "', " +
-                            "'" + user.Alias + "');";
+                            "'" + user.Alias + "', " +
+                            user.Role + ");";
 
                 database.BeginTransaction();
                 bool result = database.executeSql(statement, false);
@@ -66,6 +90,29 @@ namespace CMS_Blog.Models
                 }
             }
             return false;
+        }
+
+        public static User Get(string alias)
+        {
+            User user = new User();
+
+            SqlDatabase database = new SqlDatabase();
+            database.OpenConnection(Path.Combine(Startup.GetCurrentRootPath(), @"SQLite\CMS_BLOG.db"));
+            DataTable returnData =
+                    database.readSql(
+                            "select * from User where user_alias = '" + alias + "';");
+
+            if (returnData.Rows.Count > 0)
+            {
+                user.Id = Convert.ToInt32(returnData.Rows[0][0]);
+                user.Name = returnData.Rows[0][1].ToString();
+                user.Email = returnData.Rows[0][3].ToString();
+                user.Role = Convert.ToInt32(returnData.Rows[0][6]);
+
+            }
+
+            return user;
+
         }
 
         public static Collection<User> GetAll()
@@ -90,6 +137,7 @@ namespace CMS_Blog.Models
                         user.Email = row.ItemArray[3].ToString();
                         user.Surname = row.ItemArray[4].ToString();
                         user.Alias = row.ItemArray[5].ToString();
+                        user.Role = Convert.ToInt32(row.ItemArray[6]);
 
                         users.Add(user);
                     }

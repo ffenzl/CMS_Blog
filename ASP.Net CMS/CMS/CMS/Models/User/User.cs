@@ -14,6 +14,7 @@ namespace CMS_Blog.Models
         private string _alias;
         private string _email;
         private string _password;
+        private int _role;
 
         public int Id
         {
@@ -55,6 +56,10 @@ namespace CMS_Blog.Models
             set { this._password = value; }
         }
 
-
+        public int Role
+        {
+            get { return this._role; }
+            set { this._role = value; }
+        }
     }
 }

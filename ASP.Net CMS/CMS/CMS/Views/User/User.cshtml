@@ -31,14 +31,21 @@
                     <div class="list-group">
 
                         @foreach (var item in Model)
-            {
-                <a type="button" class="list-group-item list-group-item-action" href="@Url.Action("EditUser", "User", item)">
-                    <p class="btn btn-default btn-circle"><span data-feather="user"></span></p>
-                    <span><b>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Surname)</b> <i>(@Html.DisplayFor(modelItem => item.Alias))</i></span>
-                    <p>@Html.DisplayFor(modelItem => item.Email)</p>
-                </a>
-}
-                    </div>
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <a type="button" class="list-group-item list-group-item-action" href="@Url.Action("EditUser", "User", item)">
+                                        <p class="btn btn-default btn-circle"><span data-feather="user"></span></p>
+                                        <span><b>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Surname)</b> <i>(@Html.DisplayFor(modelItem => item.Alias))</i></span>
+                                        <p>@Html.DisplayFor(modelItem => item.Email)</p>
+                                    </a>
+                                </div>
+                                <div class="col-1 text-center align-middle m-auto">
+                                    <a href="@Url.Action("Delete", "User", new { id = item.Id })"><span data-feather="trash-2"></span></a>
+                                </div>
+                            </div>
+                        }
+                        </div>
                 </div>
 
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -50,34 +57,7 @@
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
             </div>
-            <!--
-            <div class="card mb-4 w-75">
-                <ul class="nav">
-                    <li class="nav-item border-bottom border-dark">
-                        <a class="nav-link text-dark" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="card w-75">
-                <div class="card-body">
-                    @Html.Partial("~/Views/Backend/AddUser.cshtml")
-
-                   <!--<img class="w-50 h-50" src="@Url.Content("~/Images/user.png")" />-->
-            <!--
-                            </div>
-                        </div>
-            -->
+       
         </main>
 
     </div>
@@ -92,12 +72,5 @@
 <script>
     feather.replace();
 
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+
 </script>

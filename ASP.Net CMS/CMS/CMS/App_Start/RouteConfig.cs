@@ -13,6 +13,8 @@ namespace CMS
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -22,9 +24,14 @@ namespace CMS
             routes.MapRoute(
                 name: "BlogEdit",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Post", action = "EditPost", id = "post_id" }
+                defaults: new { controller = "Post", action = "EditPost", id = UrlParameter.Optional }
             );
 
+            routes.MapRoute(
+                name: "SavePost",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Post", action = "Save", id = UrlParameter.Optional }
+            );
         }
     }
 }

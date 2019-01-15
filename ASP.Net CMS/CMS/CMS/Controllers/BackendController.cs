@@ -23,10 +23,8 @@ namespace CMS_Blog.Controllers
             return this.RedirectToAction("Login", "Backend");
         }
 
-        [ActionName("Loggout")]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public ActionResult Loggout()
+        [ActionName("Logout")]
+        public ActionResult Logout()
         {
             Session.Clear();
 
@@ -44,35 +42,41 @@ namespace CMS_Blog.Controllers
 
             if (database.OpenConnection(Path.Combine(Server.MapPath("~"), @"SQLite\CMS_BLOG.db")))
             {
-                DataTable returnData =
-                        database.readSql(
-                                "select * " +
-                                "  from User " +
-                                " where user_alias = \"" + info.UserName + "\"" +
-                                "    or upper(user_email) = \"" + info.User_Pwd + "\"");
-
-
-                if (returnData.Rows.Count == 0)
+                if (info.UserName != null && info.User_Pwd != null)
                 {
-                    Session["Session_Val"] = "Login fehlgeschlagen";
-                    return View("Login");
-                }
-                else
-                {
-                    DataRow row = returnData.Rows[0];
-                    string hashedPassword = row["user_password"].ToString();
+                    DataTable returnData =
+                            database.readSql(
+                                    "select * " +
+                                    "  from User " +
+                                    " where user_alias = \"" + info.UserName + "\"" +
+                                    "    or upper(user_email) = \"" + info.User_Pwd + "\"");
 
-                    if (Crypto.VerifyHashedPassword(hashedPassword, info.User_Pwd))
-                    {
-                        Session["UserId"] = info.UserName;
-                        return View("Index", Blog.Get());
-                    }
-                    else
+
+                    if (returnData.Rows.Count == 0)
                     {
                         Session["Session_Val"] = "Login fehlgeschlagen";
                         return View("Login");
                     }
+                    else
+                    {
+                        DataRow row = returnData.Rows[0];
+                        string hashedPassword = row["user_password"].ToString();
+
+                        if (Crypto.VerifyHashedPassword(hashedPassword, info.User_Pwd))
+                        {
+                            Session["UserId"] = info.UserName;
+                            return this.RedirectToAction("Post", "Post", Blog.Get());
+                        }
+                        else
+                        {
+                            Session["Session_Val"] = "Login fehlgeschlagen";
+                            return View("Login");
+                        }
+                    }
                 }
+
+                Session["Session_Val"] = "Login fehlgeschlagen";
+                return View("Login");
             }
             else
             {

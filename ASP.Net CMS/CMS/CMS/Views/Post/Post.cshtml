@@ -32,20 +32,29 @@
                     <div class="list-group">
 
                         @foreach (var item in Model.Posts)
-                        {
-                @*@using (Html.BeginForm("Save", "Blog", null, FormMethod.Post))
+    {
+                    @*@using (Html.BeginForm("Save", "Blog", null, FormMethod.Post))
     {
                     <textarea name="content" id="editor">
                                     @Html.DisplayFor(modelItem => item.Text)
                                 </textarea>
                     <p><input type="submit" value="Submit"></p>
     }*@
-                            <a type="button" class="list-group-item list-group-item-action" href=@Url.Action("EditPost", "Post", item.Id)>
-                                <h5>@Html.DisplayFor(modelItem => item.Title)</h5>
-                                <p>@Html.DisplayFor(modelItem => item.Date) @Html.DisplayFor(modelItem => item.User.Alias)</p>
-                            </a>
-                         }
-                </div>
+                        <div class="row">
+
+                            <div class="col">
+                                <a type="button" class="list-group-item list-group-item-action" href=@Url.Action("EditPost", "Post", new { Id = item.Id } )>
+                                    <h5>@Html.DisplayFor(modelItem => item.Title)</h5>
+                                    <p>@Html.DisplayFor(modelItem => item.Date) . <span class="text-primary">@Html.DisplayFor(modelItem => item.User.Alias)</span></p>
+
+                                </a>
+                            </div>
+                            <div class="col-1 text-center align-middle m-auto">
+                                <a href="@Url.Action("Delete", "Post", new { id = item.Id })"><span data-feather="trash-2"></span></a>
+                            </div>
+                        </div>
+                        }
+                    </div>
             </div>
                 </div>
         </main>

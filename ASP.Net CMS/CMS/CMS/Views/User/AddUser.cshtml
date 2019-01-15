@@ -59,8 +59,8 @@
                 <div class="form-group">
                     <label for="userRole">Benutzerrolle</label>
                     <select class="form-control" id="userRole" name="role">
-                        <option value="0">Administrator</option>
-                        <option value="1">Redakteur</option>
+                        <option value="1">Administrator</option>
+                        <option value="2">Redakteur</option>
                     </select>
                 </div>
 
@@ -80,34 +80,6 @@
 
                         
 </div>
-            <!--
-            <div class="card mb-4 w-75">
-                <ul class="nav">
-                    <li class="nav-item border-bottom border-dark">
-                        <a class="nav-link text-dark" href="#">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <div class="card w-75">
-                <div class="card-body">
-                    @Html.Partial("~/Views/Backend/AddUser.cshtml")
-
-                   <!--<img class="w-50 h-50" src="@Url.Content("~/Images/user.png")" />-->
-            <!--
-                            </div>
-                        </div>
-            -->
         </main>
 
     </div>
@@ -122,12 +94,5 @@
 <script>
     feather.replace();
 
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+
 </script>

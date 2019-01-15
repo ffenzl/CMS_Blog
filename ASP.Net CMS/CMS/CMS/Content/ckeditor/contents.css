@@ -38,6 +38,10 @@ blockquote
 	border-width: 0;
 }
 
+.cke {
+    width: 100% !important;
+}
+
 .cke_contents_ltr blockquote
 {
 	padding-left: 20px;

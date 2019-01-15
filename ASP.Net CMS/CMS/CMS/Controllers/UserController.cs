@@ -87,5 +87,13 @@ namespace CMS_Blog.Controllers
             return View("EditUser");
         }
 
+        [ValidateInput(false)]
+        public ActionResult Delete(int id)
+        {
+            CMS_Blog.Models.User.Delete(id);
+
+            return this.RedirectToAction("User");
+        }
+
     }
 }

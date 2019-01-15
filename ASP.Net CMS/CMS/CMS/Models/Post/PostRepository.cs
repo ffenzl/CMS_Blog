@@ -73,6 +73,25 @@ namespace CMS_Blog.Models
             return null;
         }
 
+        public static bool Delete(int id)
+        {
+            SqlDatabase database = new SqlDatabase();
+            if (database.OpenConnection(Path.Combine(Startup.GetCurrentRootPath(), @"SQLite\CMS_BLOG.db")))
+            {
+                string statement = "delete from Post where post_id = " + id;
+
+                database.BeginTransaction();
+                bool result = database.executeSql(statement, false);
+
+                if (result)
+                {
+                    database.TransCommit();
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         public static int GetNextRef()
         {
