@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Pictures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/dashboard.css" rel="stylesheet">
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml", CMS_Blog.Models.Blog.Get())
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <!-- Überschrift -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Kommentare</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="genehmigt-tab" data-toggle="tab" href="#genehmigt" role="tab" aria-controls="genehmigt" aria-selected="true">Genehmigt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="offen-tab" data-toggle="tab" href="#offen" role="tab" aria-controls="offen" aria-selected="false">Offen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="abgelehnt-tab" data-toggle="tab" href="#abgelehnt" role="tab" aria-controls="abgelehnt" aria-selected="false">Abgehlent</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="genehmigt" role="tabpanel" aria-labelledby="home-tab">
+                    @foreach (var item in Model)
+                    {
+                        if (item.State == 1)
+                        {
+                            <div class="comment lead">
+                                <span><b>@item.UserName</b></span><br />
+                                <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                                <div class="card comment-card">
+                                    <div class="card-body">
+                                        <p>@item.Text</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-secondary">Akzeptieren</button>
+                                <button type="button" class="btn btn-secondary">Ablehnen</button>
+                            </div>
+                            
+                        }
+                    }
+                </div>
+                <div class="tab-pane fade" id="offen" role="tabpanel" aria-labelledby="profile-tab">
+                    @foreach (var item in Model)
+                    {
+                        if (item.State == 0)
+                        {
+                            <div class="comment lead">
+                                <span><b>@item.UserName</b></span><br />
+                                <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                                <div class="card comment-card">
+                                    <div class="card-body">
+                                        <p>@item.Text</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-secondary">Akzeptieren</button>
+                                <button type="button" class="btn btn-secondary">Ablehnen</button>
+                            </div>
+                            
+                        }
+                    }
+                </div>
+                <div class="tab-pane fade" id="abgelehnt" role="tabpanel" aria-labelledby="contact-tab">
+                            @foreach (var item in Model)
+                            {
+                                if (item.State == 2)
+                                {
+
+                                    <div class="comment lead">
+                                        <span><b>@item.UserName</b></span><br />
+                                        <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                                        <div class="card comment-card">
+                                            <div class="card-body">
+                                                <p>@item.Text</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary">Akzeptieren</button>
+                                    <button type="button" class="btn btn-secondary">Ablehnen</button>
+                                </div>
+                                }
+                            }
+                </div>
+            </div>
+</main>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/Content/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/Content/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="/Content/js_bootstrap/bootstrap.min.js"></script>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
