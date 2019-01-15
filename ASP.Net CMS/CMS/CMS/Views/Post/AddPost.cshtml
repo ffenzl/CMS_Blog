@@ -1,0 +1,62 @@
+﻿@model CMS_Blog.Models.Blog
+
+    @{
+        ViewBag.Title = "Beitrag erstellen";
+        ViewData["Title"] = "Beitrag erstellen";
+    }
+
+
+    @Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/CKFinderScripts/ckfinder.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+
+            <main role="main" class="d-flex justify-content-center align-items-center px-4">
+
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="list-group">
+
+                        @using (Html.BeginForm("Create", "Post", FormMethod.Post))
+                        { 
+                        <div class="form-row">
+                            <input class="form-control" name="title" type="text" placeholder="Titel" />
+                        </div>
+                        <hr />
+
+                        <div class="form-row">
+                            <textarea name="content" id="editor1"></textarea>
+                            <script>
+                                //ClassicEditor
+                                //    .create(document.querySelector('#editor'))
+                                //    .catch(error => {
+                                //        console.error(error);
+                                //    });
+
+                                var editor = CKEDITOR.replace('editor1',
+                                {
+                                    extraPlugins: 'image',
+                                    removePlugins: 'easyimage',
+                                    filebrowserBrowseUrl: '/CKFinderScripts/ckfinder.html',
+                                    filebrowserImageBrowseUrl: '/CKFinderScripts/ckfinder.html?type=Images',
+                                    filebrowserUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files',
+                                    filebrowserImageUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Images'
+                                });
+                                CKFinder.setupCKEditor(editor);
+                            </script>
+                        </div>
+
+                        <div class="form-row">
+                            <p><input type="submit" class="btn btn-outline-primary" value="Speichern"></p>
+                        </div>
+                            }
+                            
+
+                        </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
