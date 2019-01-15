@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="~/css_bootstrap/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="~/css/dashboard.css" />
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css" />
     <title>@ViewBag.Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -98,10 +99,16 @@
     <header>
         <ul class="nav justify-content-end bg-dark">
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Datenschutz</a>
+                <div id="dialog-1" title="Datenschutzerklärung">
+                    @Html.Raw(CMS_Blog.Models.Privacy.GetPrivacy())
+                </div>
+                <a class="nav-link text-white" id="opener-DS" href="#">Datenschutzerklärung</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Impressum</a>
+                <div id="dialog-2" title="Impressum">
+                    @Html.Raw(CMS_Blog.Models.Imprint.GetImprint())
+                </div>
+                <a class="nav-link text-white" id="opener-IMP" href="#">Impressum</a>
             </li>
         </ul>
     </header>
@@ -229,24 +236,24 @@
                                     <div class="row">
                                         <div class="col-12">
 
-                                        @if (Model.Posts[y].Comments.Count > 0)
-                                        {
-                                            <h2>Kommentare zu diesem Beitrag</h2>
-
-
-                                            foreach (var item in Model.Posts[y].Comments)
+                                            @if (Model.Posts[y].Comments.Count > 0)
                                             {
-                                                <div class="comment lead">
-                                                    <span><b>@item.UserName</b></span><br />
-                                                    <span>geschrieben am <span class="text-primary">@item.Date</span></span>
-                                                    <div class="card comment-card">
-                                                        <div class="card-body">
-                                                            <p>@item.Text</p>
+                                                <h2>Kommentare zu diesem Beitrag</h2>
+
+
+                                                foreach (var item in Model.Posts[y].Comments)
+                                                {
+                                                    <div class="comment lead">
+                                                        <span><b>@item.UserName</b></span><br />
+                                                        <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                                                        <div class="card comment-card">
+                                                            <div class="card-body">
+                                                                <p>@item.Text</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                }
                                             }
-                                        }
                                         </div>
                                     </div>
                                 </div>
@@ -315,7 +322,7 @@
                                                 }
                                             }
                                         </div>
-                                           
+
                                     </div>
                                 </div>
                             </div>
@@ -354,9 +361,34 @@
 
     <script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery-ui.min.js"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
-        feather.replace()
+        feather.replace();
+        $(function () {
+            $("#dialog-1").dialog({
+                autoOpen: false,
+                show: "slide",
+                width: 600,
+                height: 400
+            });
+            $("#opener-DS").click(function () {
+                $("#dialog-1").dialog("open");
+            });
+
+        });
+        $(function () {
+            $("#dialog-2").dialog({
+                autoOpen: false,
+                show: "slide",
+                width: 600,
+                height: 400
+            });
+            $("#opener-IMP").click(function () {
+                $("#dialog-2").dialog("open");
+            });
+        });
+
     </script>
 </body>
 

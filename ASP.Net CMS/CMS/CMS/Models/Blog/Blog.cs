@@ -11,6 +11,8 @@ namespace CMS_Blog.Models
         private int _id;
         private string _title;
         private Collection<Post> _posts;
+        private string _privacy;
+        private string _imprint;
 
         public int Id
         {
@@ -28,6 +30,12 @@ namespace CMS_Blog.Models
         {
             get { return this._posts; }
             set { this._posts = value; }
+        }
+
+        public string BlogPrivacy
+        {
+            get { return this._privacy; }
+            set { this._privacy = value; }
         }
     }
 }

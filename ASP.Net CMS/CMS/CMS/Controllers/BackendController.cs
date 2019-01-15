@@ -41,7 +41,6 @@ namespace CMS_Blog.Controllers
         public ActionResult Login(SessionModel info)
         {
             SqlDatabase database = new SqlDatabase();
-
             if (database.OpenConnection(Path.Combine(Server.MapPath("~"), @"SQLite\CMS_BLOG.db")))
             {
                 DataTable returnData =
@@ -88,6 +87,44 @@ namespace CMS_Blog.Controllers
         {
             if ((Object)Session["UserId"] != null)
                 return View("Pictures");
+
+            Session["Session_Val"] = "Session abgelaufen";
+            return this.RedirectToAction("Login", "Backend");
+        }
+
+        [ActionName("Settings")]
+        public ActionResult Settings()
+        {
+            if ((Object)Session["UserId"] != null)
+                return View("Settings");
+
+            Session["Session_Val"] = "Session abgelaufen";
+            return this.RedirectToAction("Login", "Backend");
+        }
+
+        [ActionName("EditTitle")]
+        public ActionResult EditTitle(Blog blog)
+        {
+            if ((Object)Session["UserId"] != null)
+            {
+                SqlDatabase database = new SqlDatabase();
+                if (database.OpenConnection(Path.Combine(Server.MapPath("~"), @"SQLite\CMS_BLOG.db")))
+                {
+                    string statement =
+                        "update Blog " +
+                            "set blog_title = '" + blog.Title + "'" +
+                            "where blog_id = 1";
+
+                    database.BeginTransaction();
+                    bool result = database.executeSql(statement, false);
+
+                    if (result)
+                    {
+                        database.TransCommit();
+                        return this.RedirectToAction("Index");
+                    }
+                }
+            }
 
             Session["Session_Val"] = "Session abgelaufen";
             return this.RedirectToAction("Login", "Backend");

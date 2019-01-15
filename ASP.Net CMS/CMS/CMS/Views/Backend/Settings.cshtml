@@ -1,0 +1,53 @@
+﻿@model CMS_Blog.Models.Blog
+
+@{
+    ViewBag.Title = "Settings";
+    ViewData["Title"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+
+<div class="container-fluid">
+    <div class="row">
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml", Model)
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <!-- Überschrift -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Einstellungen</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2"></div>
+                </div>
+            </div>
+            @using (Html.BeginForm("EditTitle", "Backend", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <label for="blogTitle" class="sr-only">Blog Titel:</label>
+                CMS_Blog.Models.Blog hlp = CMS_Blog.Models.Blog.Get();
+                string tmp = "";
+                tmp = hlp.Title;
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = tmp })
+                <input class="btn btn-lg btn-primary btn-block" value="Titel ändern" type="submit" />
+
+                if (Session["Session_Val"] != null)
+                {
+                    <label class="text-danger">@Session["Session_Val"]</label>
+                }
+
+                <p class="mt-5 mb-3 text-muted">&copy; 2018</p>
+            }
+
+        </main>
+    </div>
+</div>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+
+
+</script>
+
