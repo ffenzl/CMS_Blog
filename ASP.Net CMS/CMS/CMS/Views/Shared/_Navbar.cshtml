@@ -22,9 +22,12 @@
         </ul>
         <ul class="nav flex-column mb-2">
             <li class="nav-item">
-                <a class="nav-link" href=@Url.Action("Comments", "Backend")>
+                <a class="nav-link" href=@Url.Action("Comment", "Comment")>
                     <span data-feather="message-square"></span>Kommentare
-                    <span class="badge badge-pill badge-primary">@CMS_Blog.Models.Comment.GetAll(CMS_Blog.Models.Comment.STATE_OPEN).Count()</span>
+                    @if (CMS_Blog.Models.Comment.GetAll(CMS_Blog.Models.Comment.STATE_OPEN).Count() > 0)
+                    {
+                        <span class="badge badge-pill badge-primary">@CMS_Blog.Models.Comment.GetAll(CMS_Blog.Models.Comment.STATE_OPEN).Count()</span>
+                    }
                 </a>
             </li>
         </ul>
@@ -45,7 +48,7 @@
             </ul>
             <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                    <a class="nav-link" href=@Url.Action("User", "User")><span data-feather="settings"></span>Einstellungen</a>
+                    <a class="nav-link" href=@Url.Action("Settings", "Backend")><span data-feather="settings"></span>Einstellungen</a>
                 </li>
             </ul>
         }

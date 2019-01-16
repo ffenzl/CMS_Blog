@@ -133,6 +133,7 @@ C:\Users\Franziska\Documents\Visual Studio 2017\Projects\CMS\CMS\bin\de\System.W
 C:\Users\Franziska\Documents\Visual Studio 2017\Projects\CMS\CMS\obj\Debug\CMS.csproj.CopyComplete
 C:\Users\Franziska\Documents\Visual Studio 2017\Projects\CMS\CMS\obj\Debug\CMS.dll
 C:\Users\Franziska\Documents\Visual Studio 2017\Projects\CMS\CMS\obj\Debug\CMS.pdb
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\EntityFramework.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\ApplicationInsights.config
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\CMS.dll.config
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\CMS.dll
@@ -194,7 +195,6 @@ C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\CKSource.CKFi
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\CKSource.CKFinder.Connector.Logs.NLog.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\CKSource.FileSystem.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\CKSource.FileSystem.Local.dll
-C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\EntityFramework.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\EntityFramework.SqlServer.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\ImageProcessor.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\Microsoft.AI.Agent.Intercept.dll
@@ -215,9 +215,14 @@ C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\Pri.LongPath.
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Data.SQLite.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Data.SQLite.EF6.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Data.SQLite.Linq.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Net.Http.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Net.Http.Extensions.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Net.Http.Formatting.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Net.Http.Primitives.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Security.Cryptography.X509Certificates.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Helpers.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Mvc.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Optimization.dll
@@ -268,3 +273,8 @@ C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\obj\Debug\CMS.csp
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\obj\Debug\CMS.csproj.CopyComplete
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\obj\Debug\CMS.dll
 C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\obj\Debug\CMS.pdb
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Http.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Http.WebHost.dll
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Net.Http.Formatting.xml
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Http.xml
+C:\Users\Franziska\Documents\Work\CMS_Blog\ASP.Net CMS\CMS\CMS\bin\System.Web.Http.WebHost.xml

@@ -96,5 +96,43 @@ namespace CMS_Blog.Controllers
             Session["Session_Val"] = "Session abgelaufen";
             return this.RedirectToAction("Login", "Backend");
         }
+
+        [ActionName("Settings")]
+        public ActionResult Settings()
+        {
+            if ((Object)Session["UserId"] != null)
+                return View("Settings", CMS_Blog.Models.Blog.Get());
+
+            Session["Session_Val"] = "Session abgelaufen";
+            return this.RedirectToAction("Login", "Backend");
+        }
+
+        [ActionName("EditTitle")]
+        public ActionResult EditTitle(string title)
+        {
+            if ((Object)Session["UserId"] != null)
+            {
+                SqlDatabase database = new SqlDatabase();
+                if (database.OpenConnection(Path.Combine(Server.MapPath("~"), @"SQLite\CMS_BLOG.db")))
+                {
+                    string statement =
+                        "update Blog " +
+                            "set blog_title = '" + title + "'" +
+                            "where blog_id = 1";
+
+                    database.BeginTransaction();
+                    bool result = database.executeSql(statement, false);
+
+                    if (result)
+                    {
+                        database.TransCommit();
+                        return this.RedirectToAction("Settings", CMS_Blog.Models.Blog.Get());
+                    }
+                }
+            }
+
+            Session["Session_Val"] = "Session abgelaufen";
+            return this.RedirectToAction("Login", "Backend");
+        }
     }
 }

@@ -8,9 +8,9 @@
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="~/css_bootstrap/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/css_bootstrap/bootstrap.css" />
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/jquery-ui.min.css" />
     <title>@ViewBag.Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,20 +42,22 @@
         }
 
         .featurette-divider {
-            margin: 60px 0px; /* Space out the Bootstrap <hr> more */
+            margin: 40px 0px; /* Space out the Bootstrap <hr> more */
             border: 1px solid #eeeeee;
             border-top: 1px solid #eeeeee;
             width: 100%;
         }
 
         .featurette {
-            padding-top: 80px; /* Vertically center images part 1: add padding above and below text. */
+             /* Vertically center images part 1: add padding above and below text. */
             overflow: hidden; /* Vertically center images part 2: clear their floats. */
         }
 
         .featurette-image {
-            margin-top: -80px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+            /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
             display: block;
+            max-width: 400px;
+            
         }
 
 
@@ -97,11 +99,18 @@
 <body>
     <header>
         <ul class="nav justify-content-end bg-dark">
+           
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Datenschutz</a>
+                <div id="dialog-1" title="Datenschutzerklärung">
+                    @Html.Raw(CMS_Blog.Models.Privacy.GetPrivacy())
+                </div>
+                <a class="nav-link text-white" id="opener-DS" href="#">Datenschutzerklärung</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Impressum</a>
+                <div id="dialog-2" title="Impressum">
+                    @Html.Raw(CMS_Blog.Models.Imprint.GetImprint())
+                </div>
+                <a class="nav-link text-white" id="opener-IMP" href="#">Impressum</a>
             </li>
         </ul>
     </header>
@@ -179,78 +188,83 @@
                 <div class="row">
                     <hr class="featurette-divider" />
                     <div class="featurette col-12">
-                        
-                       
-                            <img class="featurette-image pull-left mb-5" src="@Model.Posts[y].TitleImage">
 
-                        
-                       
-                            <h1 class="featurette-heading mb-md-1">@Model.Posts[y].Title</h1>
 
-                            <p class="lead">
-                                @Html.Raw(Model.Posts[y].Text)
-                                <a class="text-primary" data-toggle="collapse" href="#@Model.Posts[y].Id" role="button" aria-expanded="false" aria-controls="collapseExample">WEITERLESEN... &raquo;</a>
-                            </p>
-                            <div class="collapse" id="@Model.Posts[y].Id">
-                                
-                                    <div class="row">
-                                        <hr class="featurette-divider" />
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h4>Schreibe einen Kommentar</h4>
-                                            @using (Html.BeginForm("Save", "Comment", FormMethod.Post, "comment-form"))
-                                            {
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-6">
-                                                        <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" required>
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email (optional)">
-                                                    </div>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="form-group col-md-12">
-                                                        <textarea class="form-control" name="comment" id="validationTextarea" placeholder="Kommentar" required></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row float-right">
-                                                    <input class="btn btn-outline-primary" type="submit" value="KOMMENTAR ABSCHICKEN" />
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <hr class="featurette-divider" />
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            @if (Model.Posts[y].Comments.Count > 0)
-                                            {
-                                                <h4>Kommentare zu diesem Beitrag</h4>
-                                                foreach (var item in Model.Posts[y].Comments)
-                                                {
-                                                    <div class="comment lead">
-                                                        <span><b>@item.UserName</b></span><br />
-                                                        <span>geschrieben am <span class="text-primary">@item.Date</span></span>
-                                                        <div class="card comment-card">
-                                                            <div class="card-body">
-                                                                <p>@item.Text</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                }
-                                            }
-                                        </div>
-                                           
+                        <img class="featurette-image pull-left mb-5" src="@Model.Posts[y].TitleImage">
+
+
+
+                        <h1 class="featurette-heading mb-md-1">@Model.Posts[y].Title</h1>
+
+                        <p class="lead">
+                            @Html.Raw(Model.Posts[y].Text)
+                            <a class="text-primary" data-toggle="collapse" href="#@Model.Posts[y].Id" role="button" aria-expanded="false" aria-controls="collapseExample">KOMMENTARE... &raquo;</a>
+                        </p>
+                        <div class="collapse" id="@Model.Posts[y].Id">
+
+                            <div class="row">
+                                <hr class="featurette-divider" />
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    @if (Model.Posts[y].Comments.Count > 0)
+            {
+                        <h4>Kommentare zu diesem Beitrag</h4>
+foreach (var item in Model.Posts[y].Comments)
+{
+                        <div class="comment lead">
+                            <span><b>@item.UserName</b></span><br />
+                            <span>geschrieben am <span class="text-primary">@item.Date</span></span>
+                            <div class="card comment-card">
+                                <div class="card-body">
+                                    <p>@item.Text</p>
+                                </div>
+                            </div>
+                        </div>
+}
+}
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <hr class="featurette-divider" />
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4>Schreibe einen Kommentar</h4>
+                                    @using (Html.BeginForm("Create", "Comment", FormMethod.Post, "comment-form"))
+            {
+                        <div class="form-group col-md-6 invisible">
+                            <input type="text" name="id" value="@Model.Posts[y].Id" class="form-control" id="id" placeholder="Name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" id="inputName" placeholder="Name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email (optional)">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <textarea class="form-control" name="text" id="validationTextarea" placeholder="Kommentar"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row float-right">
+                            <input class="btn btn-outline-primary" type="submit" value="KOMMENTAR ABSCHICKEN" />
+                        </div>
+}
                                 </div>
                             </div>
 
-                            <div>
-                                <span>@Model.Posts[y].Date.ToLongDateString() - </span><span class="text-primary">@Model.Posts[y].User.Alias</span> - <a><span data-feather="message-square"></span>@Model.Posts[y].Comments.Count</a>
-                            </div>
+                        </div>
 
-                        
+                        <div>
+                            <span>@Model.Posts[y].Date.ToLongDateString() - </span><span class="text-primary">@Model.Posts[y].User.Alias</span> - <a><span data-feather="message-square"></span>@Model.Posts[y].Comments.Count</a>
+                        </div>
+
+
                     </div>
                 </div>
             }
@@ -279,10 +293,35 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
         feather.replace()
+
+        $(function () {
+            $("#dialog-1").dialog({
+                autoOpen: false,
+                show: "slide",
+                width: 600,
+                height: 400
+            });
+            $("#opener-DS").click(function () {
+                $("#dialog-1").dialog("open");
+            });
+
+        });
+        $(function () {
+            $("#dialog-2").dialog({
+                autoOpen: false,
+                show: "slide",
+                width: 600,
+                height: 400
+            });
+            $("#opener-IMP").click(function () {
+                $("#dialog-2").dialog("open");
+            });
+        });
     </script>
 </body>
 

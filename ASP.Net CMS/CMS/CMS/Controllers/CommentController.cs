@@ -10,7 +10,7 @@ namespace CMS_Blog.Controllers
     {
         // GET: User
         [ActionName("Comment")]
-        public ActionResult Index()
+        public ActionResult Comments()
         {
             if ((Object)Session["UserId"] != null)
                 return View(CMS_Blog.Models.Comment.GetAll(Comment.STATE_OPEN));
@@ -25,7 +25,7 @@ namespace CMS_Blog.Controllers
         // POST: User/Create
         [HttpPost()]
         [ActionName("Create")]
-        public ActionResult Create(string name, string email, string text, Post item)
+        public ActionResult Create(string name, string email, string text, int id)
         {
             Comment comment = new Comment();
             comment.Date = DateTime.Now;
@@ -33,27 +33,31 @@ namespace CMS_Blog.Controllers
             comment.Text = text;
             comment.UserEmail = email;
             comment.UserName = name;
-            comment.Post_id = item.Id;
+            comment.Post_id = id;
 
             if (CMS_Blog.Models.Comment.Create(comment))
-                return View("Frontend");
+                return this.RedirectToAction("Frontend", "Frontend");
 
-            return View("Frontend");
+            return this.RedirectToAction("Frontend", "Frontend");
         }
 
-        // POST: User/Create
-        [HttpPost()]
-        [ActionName("Update")]
-        public ActionResult Update(
-                User item
-        )
+        // POST: Comment/Update
+        public ActionResult Accept(int id)
         {
-            if (CMS_Blog.Models.User.Update(item))
-                return View("User", CMS_Blog.Models.User.GetAll());
+            if (CMS_Blog.Models.Comment.Accept(id))
+                return View("Comment", CMS_Blog.Models.Comment.GetAll(Comment.STATE_OPEN));
 
-            ViewData["Error"] = "Benutzer konnte nicht gespeichert werden!";
-            return View("EditUser");
+            ViewData["Error"] = "Kommentar konnte nicht gespeichert werden!";
+            return View("Comment", CMS_Blog.Models.Comment.GetAll(Comment.STATE_OPEN));
         }
 
+        public ActionResult Reject(int id)
+        {
+            if (CMS_Blog.Models.Comment.Reject(id))
+                return View("Comment", CMS_Blog.Models.Comment.GetAll(Comment.STATE_OPEN));
+
+            ViewData["Error"] = "Kommentar konnte nicht gespeichert werden!";
+            return View("Comment", CMS_Blog.Models.Comment.GetAll(Comment.STATE_OPEN));
+        }
     }
 }
