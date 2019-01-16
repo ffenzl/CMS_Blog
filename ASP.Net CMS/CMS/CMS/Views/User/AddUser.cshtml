@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Benutzer hinzufügen";
+    ViewData["Title"] = "Benutzer hinzufügen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+
+<div class="container-fluid">
+    <div class="row">
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml", CMS_Blog.Models.Blog.Get())
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <!-- Überschrift -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Benutzerverwaltung</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="float-left"><h4>Neuer Benutzer</h4></div>
+                </div>
+                <div class="card-body">
+                    @if (ViewData["Error"] != null)
+    {
+                <label class="text-danger">Login fehlgeschlagen</label>
+}
+
+                    @using (Html.BeginForm("Create", "User", FormMethod.Post))
+    {
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="userName">Vorname</label>
+                            <input type="text" class="form-control" name="name" id="userName">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="userSurname">Nachname</label>
+                            <input type="text" class="form-control" name="surname" id="userSurname">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userAlias">Alias</label>
+                    <input type="text" class="form-control" name="alias" id="userAlias">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email address</label>
+                    <input type="email" class="form-control" name="email" id="userEmail">
+                </div>
+                <div class="form-group">
+                    <label for="userRole">Benutzerrolle</label>
+                    <select class="form-control" id="userRole" name="role">
+                        <option value="1">Administrator</option>
+                        <option value="2">Redakteur</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="userPassword">Passwort</label>
+                    <input type="password" class="form-control" name="password" id="userPassword">
+                </div>
+                <div class="form-group">
+                    <label for="userConfirmPassword">Passwort bestätigen</label>
+                    <input type="password" class="form-control" name="confirmedPassword" id="userConfirmPassword">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Speichern</button>                    
+                </div>
+}
+                </div>
+
+                        
+</div>
+        </main>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/js/ckeditor.js"></script>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace();
+
+
+</script>

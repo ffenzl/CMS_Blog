@@ -1,0 +1,99 @@
+﻿@model CMS_Blog.Models.Post
+
+@{
+    ViewBag.Title = "Beitrag bearbeiten";
+    ViewData["Title"] = "Beitrag bearbeiten";
+}
+
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/CKFinderScripts/ckfinder.js"></script>
+<div class="container-fluid">
+    <div class="row text-center">
+
+        <!--<main role="main" class="d-flex justify-content-center text-center align-items-center m-auto">-->
+
+        <main role="main" class="col-md-9 m-auto col-lg-10 px-4">
+
+            <div class="card">
+
+
+
+                <div class="card-body">
+                    <div class="list-group">
+
+                        @using (Html.BeginForm("Save", "Post", FormMethod.Post ))
+    {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group invisible">
+                        <input class="form-control" type="text" name="id" value="@Model.Id" placeholder="Id" />
+                    </div>  
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="title" value="@Model.Title" placeholder="Titel" />
+                    </div>
+
+                    <hr />
+                    <img id="urlImage" style="width: 200px; height: 200px;" src="@Model.TitleImage" />
+                      
+                    <button type="button" class="btn btn-light" onclick="Open()" id="addImage"><span class="text-primary">+ Titelbild</span></button>
+
+                    <hr />
+
+                    <div class="text-center invisible">
+                        <input class="form-control" type="text" id="url" name="titleImage" value="@Model.TitleImage" placeholder="Image-URL" />
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="content" id="editor1">
+                            @Html.DisplayFor(modelItem => Model.Text)
+                        </textarea>
+                        <script>
+                            function Open() {
+
+                                CKFinder.popup({
+                                    chooseFiles: true,
+                                    onInit: function (finder) {
+                                        finder.on('files:choose', function (evt) {
+                                            var file = evt.data.files.first();
+                                            document.getElementById('url').value = file.getUrl();
+                                            document.getElementById('urlImage').src = file.getUrl();
+                                            
+
+                                        });
+                                        finder.on('file:choose:resizedImage', function (evt) {
+                                            document.getElementById('url').value = evt.data.resizedUrl;
+                                        });
+                                    }
+                                });
+                            }
+
+                            CKEDITOR.replace('editor1', {
+                                removePlugins: ['easyimage', 'image']
+                            }
+                            );
+
+                            if (document.getElementById('cke_editor1')) {
+                                console.log(document.getElementById('cke_editor1'));
+                                document.getElementById('cke_editor1').style = "width: 100%;";
+                            }
+                            //CKFinder.setupCKEditor(editor);
+
+
+
+                        </script>
+                    </div>
+
+                    <div class="form-row">
+                        <p><input type="submit" class="btn btn-outline-primary" value="Speichern"></p>
+                    </div>
+}
+
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

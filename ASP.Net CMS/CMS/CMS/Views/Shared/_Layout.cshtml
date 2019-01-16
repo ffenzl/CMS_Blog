@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/Content/css_bootstrap/bootstrap.css" />
+    
+    <link rel="stylesheet" type="text/css" href="/Content/css/dashboard.css" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    @*<environment names="Development">
+            <link href="~/css_bootstrap/bootstrap.min.css" rel="stylesheet" />
+            <link href="~/css/signin.css" rel="stylesheet">
+            <link href="~/css/dashboard.css" rel="stylesheet">
+
+
+        </environment>
+
+        <environment names="Staging,Production">
+            <link href="~/css_bootstrap/bootstrap.min.css" rel="stylesheet" />
+            <link href="~/css/signin.css" rel="stylesheet">
+            <link href="~/css/dashboard.css" rel="stylesheet">
+        </environment>*@
+
+</head>
+<body class="bg-light">
+    @RenderBody()
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+﻿@model CMS_Blog.Models.Blog
+
+@{
+    ViewBag.Title = "Backend Index";
+    ViewData["Title"] = "Backend Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+
+<div class="container-fluid">
+    <div class="row">
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml", Model)
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <!-- Überschrift -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Blogbeiträge</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Beiträge <span class="badge badge-pill badge-primary">@Model.Posts.Count()</span>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+
+                        @foreach (var item in Model.Posts)
+                        {
+                @*@using (Html.BeginForm("Save", "Blog", null, FormMethod.Post))
+    {
+                    <textarea name="content" id="editor">
+                                    @Html.DisplayFor(modelItem => item.Text)
+                                </textarea>
+                    <p><input type="submit" value="Submit"></p>
+    }*@
+                            <a type="button" class="list-group-item list-group-item-action" href=@Url.Action("EditPost", "Post", item)>
+                                <h5>@Html.DisplayFor(modelItem => item.Title)</h5>
+                                <p>@Html.DisplayFor(modelItem => item.Date) @Html.DisplayFor(modelItem => item.User.Alias)</p>
+                            </a>
+                         }
+                </div>
+            </div>
+                </div>
+        </main>
+    </div>
+</div>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script type="text/javascript" src="~/js/ckeditor.js"></script>
+<script>
+    feather.replace()
+
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+

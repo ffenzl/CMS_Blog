@@ -1,0 +1,63 @@
+﻿@model CMS_Blog.Models.Post
+
+    @{
+        ViewBag.Title = "Beitrag bearbeiten";
+        ViewData["Title"] = "Beitrag bearbeiten";
+    }
+
+
+    @Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <div class="container-fluid">
+        <div class="row">
+
+            <main role="main" class="d-flex justify-content-center align-items-center px-4">
+
+
+
+                <div class="card">
+
+
+
+                    <div class="card-body">
+                        <div class="list-group">
+
+                        @using (Html.BeginForm("Save", "Blog", Model, FormMethod.Post))
+                        { 
+                        <div class="form-row">
+                            <input class="form-control" type="text" placeholder="Titel" />
+                        </div>
+                        <hr />
+
+                        <div class="form-row">
+                            <textarea name="content" id="editor1">
+                                    @Html.DisplayFor(modelItem => Model.Text)
+                                </textarea>
+                            <script>
+                                //ClassicEditor
+                                //    .create(document.querySelector('#editor'))
+                                //    .catch(error => {
+                                //        console.error(error);
+                                //    });
+
+                                CKEDITOR.replace("editor1", {
+                                    extraPlugins: 'easyimage',
+                                    removePlugins: 'image',
+                                    cloudServices_tokenUrl: 'https://example.com/cs-token-endpoint',
+                                    cloudServices_uploadUrl: 'https://your-organization-id.cke-cs.com/easyimage/upload/'
+                                });
+                            </script>
+                        </div>
+
+                        <div class="form-row">
+                            <p><input type="submit" class="btn btn-outline-primary" value="Speichern"></p>
+                        </div>
+                            }
+                            }
+
+                        </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>

@@ -1,0 +1,78 @@
+﻿@model CMS_Blog.Models.Blog
+
+    @{
+        ViewBag.Title = "Beitrag erstellen";
+        ViewData["Title"] = "Beitrag erstellen";
+    }
+
+
+    @Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/CKFinderScripts/ckfinder.js"></script>
+    <div class="container-fluid">
+        <div class="row text-center">
+
+            <main role="main" class="col-md-9 m-auto col-lg-10 px-4">
+                <div class="card">
+
+                    <div class="card-body">
+                        <div class="list-group">
+
+                            @using (Html.BeginForm("Create", "Post", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="title" placeholder="Titel" />
+                    </div>
+
+                    <hr />
+                    <img id="urlImage" style="width: 200px; height: 200px;" src="/Content/Images/placeholder.png" />
+
+                    <button type="button" class="btn btn-light" onclick="Open()" id="addImage"><span class="text-primary">+ Titelbild</span></button>
+
+                    <hr />
+
+                    <div class="text-center invisible">
+                        <input class="form-control" type="text" id="url" name="titleImage" placeholder="Image-URL" />
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="content" class="m-auto" id="editor1"></textarea>
+                        <script>
+                            function Open() {
+
+                                CKFinder.popup({
+                                    chooseFiles: true,
+                                    onInit: function (finder) {
+                                        finder.on('files:choose', function (evt) {
+                                            var file = evt.data.files.first();
+                                            document.getElementById('url').value = file.getUrl();
+                                            document.getElementById('urlImage').src = file.getUrl();
+
+
+                                        });
+                                        finder.on('file:choose:resizedImage', function (evt) {
+                                            document.getElementById('url').value = evt.data.resizedUrl;
+                                        });
+                                    }
+                                });
+                            }
+
+                            CKEDITOR.replace('editor1', {
+                                removePlugins: ['easyimage', 'image']
+                            }
+                            );                                                                                                                                                                                                                                                                                     //CKFinder.setupCKEditor(editor);
+                        </script>
+                    </div>
+
+                    <div class="form-row">
+                        <p><input type="submit" class="btn btn-outline-primary" value="Speichern"></p>
+
+                    </div>
+    }
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>

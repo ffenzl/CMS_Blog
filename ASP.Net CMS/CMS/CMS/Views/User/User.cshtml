@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CMS_Blog.Models.User>
+
+@{
+    ViewBag.Title = "Backend Index";
+    ViewData["Title"] = "Backend Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+
+<div class="container-fluid">
+    <div class="row">
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml", CMS_Blog.Models.Blog.Get())
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <!-- Überschrift -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Benutzerverwaltung</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="float-left"><h4>Benutzer</h4>@Session["UserName"]</div>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="row">
+                                <div class="col">
+                                    <a type="button" class="list-group-item list-group-item-action" href="@Url.Action("EditUser", "User", item)">
+                                        <p class="btn btn-default btn-circle"><span data-feather="user"></span></p>
+                                        <span><b>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Surname)</b> <i>(@Html.DisplayFor(modelItem => item.Alias))</i></span>
+                                        <p>@Html.DisplayFor(modelItem => item.Email)</p>
+                                    </a>
+                                </div>
+                                <div class="col-1 text-center align-middle m-auto">
+                                    <a href="@Url.Action("Delete", "User", new { id = item.Id })"><span data-feather="trash-2"></span></a>
+                                </div>
+                            </div>
+                        }
+                        </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                    <textarea name="content" id="editor">
+
+                    </textarea>
+
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+            </div>
+       
+        </main>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/js/ckeditor.js"></script>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace();
+
+
+</script>

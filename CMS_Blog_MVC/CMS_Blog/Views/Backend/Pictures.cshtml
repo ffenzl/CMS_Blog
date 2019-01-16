@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Pictures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/dashboard.css" rel="stylesheet">
+
+@Html.Partial("~/Views/Shared/_BackendNavBar.cshtml")
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        @Html.Partial("~/Views/Shared/_Navbar.cshtml")
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <!-- Überschrift -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Bilder</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                    </div>
+                </div>
+            </div>
+            <!----------------->
+            <!-- Bilder -->
+            <div id="ckfinder"></div>
+          
+        </main>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="~/js_jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/js_devextreme/dx.all.js"></script>
+<script type="text/javascript" src="~/js_bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/ckfinder/ckfinder.js"></script>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+    feather.replace()
+
+    CKFinder.widget('ckfinder');
+</script>
